@@ -561,23 +561,51 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.75rem, 5.2vw, 4.65rem);
       font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.025em;
       color: var(--text-primary);
-      margin-bottom: 1.15rem;
+      margin-bottom: 1.2rem;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 100%;
+    }
+
+    .hero-title-gahara {
+      display: block;
+      text-transform: uppercase;
+      font-size: clamp(3.35rem, 6.7vw, 5.75rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .hero-title-tech {
+      display: block;
+      font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      margin-top: 0.06em;
     }
 
     .hero-tagline {
       font-family: var(--font-display);
       font-size: clamp(1.35rem, 2.3vw, 1.95rem);
       font-weight: 600;
-      line-height: 1.28;
+      line-height: 1.3;
+      margin-bottom: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .hero-tagline-line {
+      display: block;
       background: linear-gradient(92deg, #FFFFFF 0%, #BAE6FD 55%, var(--cyan) 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 1.35rem;
     }
 
     .hero-lead {
@@ -1381,10 +1409,12 @@
         line-height: 1.4;
       }
 
-      .hero h1 {
-        font-size: clamp(2.05rem, 8.5vw, 2.75rem);
-        line-height: 1.08;
-        word-break: break-word;
+      .hero-title-gahara {
+        font-size: clamp(2.85rem, 12.2vw, 3.9rem);
+      }
+
+      .hero-title-tech {
+        font-size: clamp(1.88rem, 8.1vw, 2.55rem);
       }
 
       .hero-tagline {
@@ -1674,8 +1704,14 @@
             </span>
           </div>
 
-          <h1 id="hero-heading">Gahara Technologies</h1>
-          <p class="hero-tagline">Architecting Intelligence. Engineering Precision.</p>
+          <h1 id="hero-heading" aria-label="GAHARA Technologies">
+            <span class="hero-title-gahara">GAHARA</span>
+            <span class="hero-title-tech">Technologies</span>
+          </h1>
+          <p class="hero-tagline">
+            <span class="hero-tagline-line">Architecting Intelligence.</span>
+            <span class="hero-tagline-line">Engineering Precision.</span>
+          </p>
           <p class="hero-lead">
             We build mission-critical digital infrastructure, advanced predictive models, and autonomous systems for enterprises that demand absolute performance and uncompromised security.
           </p>
@@ -2147,6 +2183,26 @@
       formStatus.classList.add('visible');
       form.reset();
     });
+
+    // Precision Lockup Width Sync: match "GAHARA" width to "Technologies" width
+    function syncHeroTitleWidth() {
+      const gaharaEl = document.querySelector('.hero-title-gahara');
+      const techEl = document.querySelector('.hero-title-tech');
+      if (!gaharaEl || !techEl) return;
+      gaharaEl.style.fontSize = '';
+      const techWidth = techEl.getBoundingClientRect().width;
+      const gaharaWidth = gaharaEl.getBoundingClientRect().width;
+      if (techWidth > 0 && gaharaWidth > 0) {
+        const currentFontSize = parseFloat(window.getComputedStyle(gaharaEl).fontSize);
+        const matchedFontSize = currentFontSize * (techWidth / gaharaWidth);
+        gaharaEl.style.fontSize = `${matchedFontSize.toFixed(2)}px`;
+      }
+    }
+    syncHeroTitleWidth();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncHeroTitleWidth);
+    }
+    window.addEventListener('resize', syncHeroTitleWidth);
   </script>
 </body>
 </html>
