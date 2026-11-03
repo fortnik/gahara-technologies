@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gahara Technologies — Architecting Intelligence. Engineering Precision.</title>
+  <meta name="description" content="Gahara Technologies builds mission-critical digital infrastructure, advanced predictive models, computer vision, tactical UAV systems, and autonomous AI ecosystems with zero-trust security.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#060911">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gahara Technologies">
+  <meta property="og:title" content="Gahara Technologies | Architecting Intelligence. Engineering Precision.">
+  <meta property="og:description" content="We build mission-critical digital infrastructure, advanced predictive models, and autonomous systems for enterprises that demand absolute performance and uncompromised security.">
+
+  <!-- Google Fonts with clean offline system fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-void: #05080F;
+      --bg-deep: #090E1A;
+      --bg-panel: #0E1525;
+      --bg-panel-elevated: #131C31;
+      --bg-glass: rgba(14, 21, 37, 0.76);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --cyan: #00E5FF;
+      --cyan-soft: rgba(0, 229, 255, 0.14);
+      --cyan-glow: rgba(0, 229, 255, 0.32);
+      --blue: #38BDF8;
+      --emerald: #10B981;
+      --border-subtle: rgba(148, 163, 184, 0.14);
+      --border-tech: rgba(0, 229, 255, 0.28);
+      --grid-line: rgba(148, 163, 184, 0.05);
+      --font-display: 'Space Grotesk', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
+      --max-w: 1320px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --transition: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* Ambient High-Tech Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 25%, black 30%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at 50% 25%, black 30%, transparent 85%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    :is(a, button, input, select, textarea):focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 9999;
+      padding: 10px 16px;
+      background: var(--cyan);
+      color: var(--bg-void);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: var(--radius-sm);
+      transform: translateY(-200%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* Utility Layout & Typography */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 56px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .mono-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      padding: 6px 12px;
+      background: rgba(0, 229, 255, 0.07);
+      border: 1px solid rgba(0, 229, 255, 0.24);
+      border-radius: var(--radius-sm);
+    }
+
+    .mono-tag .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      animation: pulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Top Telemetry Bar */
+    .telemetry-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 15, 0.9);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      position: relative;
+      z-index: 100;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 36px;
+      gap: 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .telemetry-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .telemetry-item strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .status-ok {
+      color: var(--emerald);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .status-ok::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 6px var(--emerald);
+    }
+
+    /* Header / Navbar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 8, 15, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(14, 21, 37, 0.9));
+      border: 1px solid var(--border-tech);
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+    }
+
+    .brand-mark svg {
+      width: 20px;
+      height: 20px;
+      color: var(--cyan);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--cyan);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: #030712;
+      border-color: var(--cyan);
+      box-shadow: 0 0 24px rgba(0, 229, 255, 0.24);
+    }
+
+    .btn-primary:hover {
+      background: #5CEFFF;
+      border-color: #5CEFFF;
+      box-shadow: 0 0 32px rgba(0, 229, 255, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(14, 21, 37, 0.75);
+      color: var(--text-primary);
+      border-color: var(--border-tech);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 229, 255, 0.1);
+      border-color: var(--cyan);
+      transform: translateY(-1px);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      font-size: 0.73rem;
+    }
+
+    /* Hero Section / Above the Fold */
+    .hero {
+      position: relative;
+      padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(4.5rem, 8vw, 7.5rem);
+      border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -180px;
+      right: -120px;
+      width: 680px;
+      height: 680px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(56, 189, 248, 0.04) 45%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .hero-kicker {
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-brand-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 5.2vw, 4.65rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 1.15rem;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.3vw, 1.95rem);
+      font-weight: 600;
+      line-height: 1.28;
+      background: linear-gradient(92deg, #FFFFFF 0%, #BAE6FD 55%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-lead {
+      font-size: clamp(1.02rem, 1.25vw, 1.16rem);
+      color: var(--text-secondary);
+      line-height: 1.78;
+      max-width: 620px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 1.85rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .metric-value span {
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Hero Visual Frame */
+    .hero-visual-frame {
+      position: relative;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.65),
+        0 0 40px rgba(0, 229, 255, 0.08);
+    }
+
+    .frame-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: rgba(5, 8, 15, 0.9);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .frame-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .frame-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.3);
+    }
+
+    .frame-dots span:first-child {
+      background: var(--cyan);
+    }
+
+    .hero-img-wrapper {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #070B14;
+      overflow: hidden;
+    }
+
+    .hero-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-visual-frame:hover .hero-img-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .hero-img-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5, 8, 15, 0.05) 0%, rgba(5, 8, 15, 0.72) 100%);
+      pointer-events: none;
+    }
+
+    .hud-overlay {
+      position: absolute;
+      inset: 16px;
+      pointer-events: none;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hud-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .hud-badge {
+      background: rgba(5, 8, 15, 0.82);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    .hud-bottom-card {
+      background: rgba(5, 8, 15, 0.86);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--cyan);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hud-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+    }
+
+    .hud-stat-val {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-top: 2px;
+      display: block;
+    }
+
+    /* Section Generic Styles */
+    .section {
+      padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: clamp(2.75rem, 5vw, 4rem);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3.15rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-top: 1rem;
+      color: var(--text-primary);
+    }
+
+    /* Section 01: Introduction / Philosophy */
+    .philosophy-section {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-void) 100%);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .philosophy-media {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-tech);
+      background: var(--bg-panel);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .philosophy-media img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .philosophy-media:hover img {
+      transform: scale(1.03);
+    }
+
+    .philosophy-media-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(5, 8, 15, 0.92);
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+    }
+
+    .philosophy-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-weight: 700;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .philosophy-body {
+      font-size: clamp(1.02rem, 1.2vw, 1.14rem);
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .philosophy-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .p-mini-card {
+      padding: 14px 16px;
+      background: rgba(14, 21, 37, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-left: 2px solid var(--cyan);
+      border-radius: var(--radius-sm);
+    }
+
+    .p-mini-card strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .p-mini-card span {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    /* Section 02: Core Capabilities / Services */
+    .capabilities-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: clamp(2.5rem, 4.5vw, 3.75rem);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--cyan-soft);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .capabilities-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .capability-card {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .capability-card:nth-child(even) {
+      grid-template-columns: 1.08fr 0.92fr;
+    }
+
+    .capability-card:nth-child(even) .cap-media {
+      order: 2;
+    }
+
+    .capability-card:nth-child(even) .cap-content {
+      order: 1;
+    }
+
+    .capability-card:hover {
+      border-color: var(--border-tech);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 229, 255, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .cap-media {
+      position: relative;
+      min-height: 320px;
+      background: #060A12;
+      overflow: hidden;
+    }
+
+    .cap-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .capability-card:hover .cap-media img {
+      transform: scale(1.04);
+    }
+
+    .cap-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5, 8, 15, 0.1) 0%, rgba(5, 8, 15, 0.65) 100%);
+      pointer-events: none;
+    }
+
+    .cap-media-overlay {
+      position: absolute;
+      inset: 16px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .cap-index-badge {
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      background: rgba(5, 8, 15, 0.85);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      color: var(--cyan);
+      border-radius: var(--radius-sm);
+      backdrop-filter: blur(8px);
+    }
+
+    .cap-telemetry-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: rgba(5, 8, 15, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--text-secondary);
+      justify-content: space-between;
+    }
+
+    .cap-telemetry-strip span strong {
+      color: var(--cyan);
+    }
+
+    .cap-content {
+      padding: clamp(2rem, 4vw, 3.25rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cap-category {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.65rem;
+    }
+
+    .cap-content h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.3vw, 2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1.1rem;
+    }
+
+    .cap-content p {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.65rem;
+    }
+
+    .cap-spec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .spec-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Section 03: Closing / Soft Call-to-Action & Interactive Consultation Terminal */
+    .cta-section {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(0, 229, 255, 0.1), transparent 45%),
+        linear-gradient(180deg, var(--bg-void) 0%, var(--bg-deep) 100%);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .cta-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin: 1rem 0 1.4rem;
+    }
+
+    .cta-copy p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.82;
+      margin-bottom: 1.35rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 2rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .security-assurance {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      background: rgba(14, 21, 37, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    .security-assurance svg {
+      width: 24px;
+      height: 24px;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .security-assurance div {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .security-assurance strong {
+      color: var(--text-primary);
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    /* Interactive Engineering Briefing Terminal */
+    .terminal-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: rgba(5, 8, 15, 0.92);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .terminal-body {
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+      background: rgba(5, 8, 15, 0.65);
+      padding: 5px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .mode-tab {
+      padding: 9px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mode-tab.active {
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      background: rgba(5, 8, 15, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--cyan);
+      outline: none;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 96px;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #6EE7B7;
+    }
+
+    .form-status.visible {
+      display: block;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 3rem 0;
+      background: var(--bg-void);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-meta {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .philosophy-grid,
+      .cta-grid,
+      .capability-card,
+      .capability-card:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .capability-card:nth-child(even) .cap-media,
+      .capability-card:nth-child(even) .cap-content {
+        order: initial;
+      }
+
+      .cap-media {
+        aspect-ratio: 16 / 9;
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .telemetry-bar {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-metrics,
+      .philosophy-pillars,
+      .form-row,
+      .hud-bottom-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta-group .btn,
+      .cta-buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+  <!-- Top System Telemetry Bar -->
+  <div class="telemetry-bar" aria-label="System Status Telemetry">
+    <div class="container telemetry-inner">
+      <div class="telemetry-group">
+        <span class="telemetry-item status-ok">SYS.STATUS: OPERATIONAL</span>
+        <span class="telemetry-item">SECURITY: <strong>ZERO-TRUST ENFORCED</strong></span>
+        <span class="telemetry-item">ENCRYPTION: <strong>AES-256 / QUANTUM-READY</strong></span>
+      </div>
+      <div class="telemetry-group">
+        <span class="telemetry-item">CORE: <strong>AI · CV · UAV · INFRASTRUCTURE</strong></span>
+        <span class="telemetry-item" id="live-clock">UTC+08:00 // READY</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Gahara Technologies Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+            <line x1="12" y1="22" x2="12" y2="15.5"></line>
+            <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+            <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
+            <line x1="12" y1="2" x2="12" y2="8.5"></line>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Gahara Technologies</span>
+          <span class="brand-sub">Intelligence &amp; Precision</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#philosophy">01 // Philosophy</a></li>
+          <li><a href="#capabilities">02 // Capabilities</a></li>
+          <li><a href="#security">03 // Zero-Trust</a></li>
+          <li><a href="#partner">04 // Partner</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#capabilities" class="btn btn-secondary btn-sm">Explore Capabilities</a>
+        <a href="#partner" class="btn btn-primary btn-sm" data-mode-trigger="project">Initiate a Project</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO SECTION / ABOVE THE FOLD -->
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <span class="mono-tag">
+              <span class="pulse-dot"></span>
+              Mission-Critical Engineering &amp; Autonomous Systems
+            </span>
+          </div>
+
+          <h1 id="hero-heading">Gahara Technologies</h1>
+          <p class="hero-tagline">Architecting Intelligence. Engineering Precision.</p>
+          <p class="hero-lead">
+            We build mission-critical digital infrastructure, advanced predictive models, and autonomous systems for enterprises that demand absolute performance and uncompromised security.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#partner" class="btn btn-primary" data-mode-trigger="project">
+              <span>Initiate a Project</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="#capabilities" class="btn btn-secondary">
+              <span>Explore Our Capabilities</span>
+              <span aria-hidden="true">↘</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics" aria-label="Operational Capabilities Overview">
+            <div class="metric-item">
+              <div class="metric-value">5<span>// CORE</span></div>
+              <div class="metric-label">Engineering Domains</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">Zero<span>-TRUST</span></div>
+              <div class="metric-label">Security Architecture</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">24/7<span>// AI</span></div>
+              <div class="metric-label">Autonomous Execution</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="hero-visual-frame">
+          <div class="frame-topbar">
+            <div class="frame-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <span>GAHARA.CORE // INFRASTRUCTURE TELEMETRY</span>
+            <span>LIVE FEED</span>
+          </div>
+          <div class="hero-img-wrapper">
+            <img src="assets/gahara/hero-command.jpg" alt="Gahara Technologies mission-critical digital infrastructure and autonomous command core" width="1280" height="800" fetchpriority="high">
+            <div class="hud-overlay" aria-hidden="true">
+              <div class="hud-top-row">
+                <span class="hud-badge">SYS.NODE // 01-ALPHA</span>
+                <span class="hud-badge">LATENCY &lt; 0.4ms</span>
+              </div>
+              <div class="hud-bottom-card">
+                <div>
+                  <span class="hud-stat-label">Infrastructure</span>
+                  <span class="hud-stat-val">Mission-Critical</span>
+                </div>
+                <div>
+                  <span class="hud-stat-label">Intelligence</span>
+                  <span class="hud-stat-val">Predictive &amp; CV</span>
+                </div>
+                <div>
+                  <span class="hud-stat-label">Defense Tier</span>
+                  <span class="hud-stat-val">Zero-Trust Vault</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION / PHILOSOPHY SECTION -->
+    <section class="section philosophy-section" id="philosophy" aria-labelledby="philosophy-heading">
+      <div class="container philosophy-grid">
+        <div class="philosophy-media">
+          <img src="assets/gahara/philosophy-operations.jpg" alt="Bespoke high-performance engineering ecosystem powered by AI, analytics, and tactical software" width="1280" height="800" loading="lazy">
+          <div class="philosophy-media-caption">
+            <span>FIG 01 // BESPOKE OPERATIONAL ARCHITECTURE</span>
+            <span>PRECISION GRADE</span>
+          </div>
+        </div>
+
+        <div class="philosophy-copy">
+          <span class="mono-tag">01 // Introduction &amp; Philosophy</span>
+          <h2 id="philosophy-heading">Beyond Code. Building the Future of Operations.</h2>
+          <p class="philosophy-body">
+            At Gahara Technologies, we do not rely on off-the-shelf solutions. We engineer bespoke, high-performance ecosystems powered by artificial intelligence, advanced analytics, and zero-trust security architecture. From autonomous commercial workflows to tactical drone software, every system is designed with absolute precision to solve your most complex operational and business challenges.
+          </p>
+
+          <div class="philosophy-pillars">
+            <div class="p-mini-card">
+              <strong>Bespoke Ecosystems</strong>
+              <span>Custom-engineered from the ground up—zero generic templates.</span>
+            </div>
+            <div class="p-mini-card">
+              <strong>AI &amp; Advanced Analytics</strong>
+              <span>Real-time intelligence embedded directly into operations.</span>
+            </div>
+            <div class="p-mini-card">
+              <strong>Commercial to Tactical</strong>
+              <span>From autonomous enterprise workflows to UAV flight control.</span>
+            </div>
+            <div class="p-mini-card">
+              <strong>Zero-Trust by Default</strong>
+              <span>Hardened security architecture across every layer.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE CAPABILITIES / SERVICES SECTION -->
+    <section class="section" id="capabilities" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <div class="capabilities-header-row">
+          <div>
+            <span class="mono-tag">02 // Core Capabilities &amp; Services</span>
+            <h2 class="section-title" id="capabilities-heading">Engineering &amp; Intelligence Solutions</h2>
+          </div>
+
+          <div class="filter-bar" role="toolbar" aria-label="Filter capabilities">
+            <button type="button" class="filter-btn active" data-filter="all">All Systems (05)</button>
+            <button type="button" class="filter-btn" data-filter="platform">Web &amp; Mobile</button>
+            <button type="button" class="filter-btn" data-filter="ai">Autonomous AI</button>
+            <button type="button" class="filter-btn" data-filter="cv">Predictive &amp; CV</button>
+            <button type="button" class="filter-btn" data-filter="uav">Tactical UAV</button>
+            <button type="button" class="filter-btn" data-filter="security">Cyber Defense</button>
+          </div>
+        </div>
+
+        <div class="capabilities-list">
+          <!-- Capability 01: Enterprise Web & Mobile Architecture -->
+          <article class="capability-card" data-category="platform">
+            <div class="cap-media">
+              <img src="assets/gahara/web-mobile-architecture.jpg" alt="Enterprise Web and Mobile Architecture scalable digital platforms" width="1280" height="720" loading="lazy">
+              <div class="cap-media-overlay" aria-hidden="true">
+                <span class="cap-index-badge">MODULE 01 // DIGITAL PLATFORMS</span>
+                <div class="cap-telemetry-strip">
+                  <span>ARCH: <strong>CLOUD-NATIVE / MICROSERVICES</strong></span>
+                  <span>UPTIME: <strong>99.99%</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="cap-content">
+              <span class="cap-category">01 // Scalable Platform Engineering</span>
+              <h3>Enterprise Web &amp; Mobile Architecture</h3>
+              <p>
+                We design and deploy highly scalable, responsive digital platforms. Whether it is a complex web application or an enterprise-grade mobile ecosystem, our software architecture is built for speed, absolute reliability, and a frictionless user experience.
+              </p>
+              <div class="cap-spec-tags">
+                <span class="spec-pill">Complex Web Applications</span>
+                <span class="spec-pill">Enterprise Mobile Ecosystems</span>
+                <span class="spec-pill">High-Speed Execution</span>
+                <span class="spec-pill">Frictionless UX</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Capability 02: Autonomous AI & Marketing Automation -->
+          <article class="capability-card" data-category="ai">
+            <div class="cap-media">
+              <img src="assets/gahara/autonomous-ai.jpg" alt="Autonomous AI and Machine Learning workflow automation system" width="1280" height="720" loading="lazy">
+              <div class="cap-media-overlay" aria-hidden="true">
+                <span class="cap-index-badge">MODULE 02 // AUTONOMOUS AI</span>
+                <div class="cap-telemetry-strip">
+                  <span>ENGINE: <strong>FINE-TUNED ML MODELS</strong></span>
+                  <span>MODE: <strong>ZERO-INTERVENTION</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="cap-content">
+              <span class="cap-category">02 // Intelligent Workflow Systems</span>
+              <h3>Autonomous AI &amp; Marketing Automation</h3>
+              <p>
+                Transform traditional workflows through intelligent automation. Our expertise lies in fine-tuning Machine Learning models and integrating AI to create autonomous marketing and business systems. We build self-adapting workflows that think, execute, and optimize critical operations with zero human intervention.
+              </p>
+              <div class="cap-spec-tags">
+                <span class="spec-pill">Fine-Tuned ML Models</span>
+                <span class="spec-pill">Autonomous Marketing Systems</span>
+                <span class="spec-pill">Self-Adapting Workflows</span>
+                <span class="spec-pill">Zero Human Intervention</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Capability 03: Predictive Analytics & Computer Vision -->
+          <article class="capability-card" data-category="cv">
+            <div class="cap-media">
+              <img src="assets/gahara/predictive-cv-multidomain.jpg" alt="Multi-domain Predictive Analytics and Real-Time Computer Vision for business forecasting, enterprise operations, strategic simulations, and sports intelligence" width="1280" height="720" loading="lazy">
+              <div class="cap-media-overlay" aria-hidden="true">
+                <span class="cap-index-badge">MODULE 03 // MULTI-DOMAIN FORECASTING &amp; CV</span>
+                <div class="cap-telemetry-strip">
+                  <span>DOMAINS: <strong>BUSINESS · OPERATIONS · STRATEGY · SPORTS</strong></span>
+                  <span>MODE: <strong>REAL-TIME</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="cap-content">
+              <span class="cap-category">03 // Strategic Foresight &amp; Vision Intelligence</span>
+              <h3>Predictive Analytics &amp; Computer Vision</h3>
+              <p>
+                Turn raw data into strategic foresight across any industry. We develop high-fidelity computational models capable of complex, multi-domain forecasting—from predicting business trajectories, market demand, and operational risks to running simulation algorithms for strategic and macro-level outcomes. Utilizing advanced computer vision, our systems detect, track, and analyze visual intelligence in real time across commercial environments, industrial operations, and high-precision sports analytics for maximum performance optimization.
+              </p>
+              <div class="cap-spec-tags">
+                <span class="spec-pill">Business &amp; Market Forecasting</span>
+                <span class="spec-pill">Strategic &amp; Simulation Modeling</span>
+                <span class="spec-pill">Enterprise &amp; Industrial Computer Vision</span>
+                <span class="spec-pill">Sports &amp; Performance Analytics</span>
+                <span class="spec-pill">Real-Time Object &amp; Motion Tracking</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Capability 04: Tactical Robotics & UAV Systems -->
+          <article class="capability-card" data-category="uav">
+            <div class="cap-media">
+              <img src="assets/gahara/tactical-uav.jpg" alt="Tactical Robotics and Unmanned Aerial Vehicle UAV autonomous control and telemetry software" width="1280" height="720" loading="lazy">
+              <div class="cap-media-overlay" aria-hidden="true">
+                <span class="cap-index-badge">MODULE 04 // TACTICAL ROBOTICS &amp; UAV</span>
+                <div class="cap-telemetry-strip">
+                  <span>NAV: <strong>AUTONOMOUS WAYPOINT / LIDAR</strong></span>
+                  <span>LINK: <strong>REAL-TIME TELEMETRY</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="cap-content">
+              <span class="cap-category">04 // Autonomous Field &amp; Aerial Control</span>
+              <h3>Tactical Robotics &amp; UAV Systems</h3>
+              <p>
+                Geared towards military-grade applications and tactical operations, we engineer control software for robotic assets and Unmanned Aerial Vehicles (UAVs/Drones). Our focus is on real-time telemetry control, autonomous navigation, and operational reliability in the most demanding environments.
+              </p>
+              <div class="cap-spec-tags">
+                <span class="spec-pill">Military-Grade Applications</span>
+                <span class="spec-pill">UAV &amp; Robotic Control Software</span>
+                <span class="spec-pill">Real-Time Telemetry Control</span>
+                <span class="spec-pill">Autonomous Navigation</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Capability 05: Mission-Critical Security Infrastructure -->
+          <article class="capability-card" id="security" data-category="security">
+            <div class="cap-media">
+              <img src="assets/gahara/security-fortress.jpg" alt="Mission-Critical Zero-Trust Security Infrastructure and encrypted digital fortress" width="1280" height="720" loading="lazy">
+              <div class="cap-media-overlay" aria-hidden="true">
+                <span class="cap-index-badge">MODULE 05 // CYBERSECURITY FORTRESS</span>
+                <div class="cap-telemetry-strip">
+                  <span>PROTOCOL: <strong>ZERO-TRUST ARCHITECTURE</strong></span>
+                  <span>SHIELD: <strong>ACTIVE ENCRYPTION</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="cap-content">
+              <span class="cap-category">05 // Impenetrable Cyber Defense</span>
+              <h3>Mission-Critical Security Infrastructure</h3>
+              <p>
+                Innovation is a liability without impenetrable defense. Every line of code and database engineered at Gahara Technologies is protected by the highest tier of cybersecurity protocols. We build uncompromised, zero-trust digital fortresses, ensuring your proprietary data, analytics, and control systems are heavily encrypted and resilient against external threats.
+              </p>
+              <div class="cap-spec-tags">
+                <span class="spec-pill">Zero-Trust Digital Fortresses</span>
+                <span class="spec-pill">Hardened Code &amp; Database Encryption</span>
+                <span class="spec-pill">Proprietary Data Protection</span>
+                <span class="spec-pill">External Threat Resilience</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING / SOFT CALL-TO-ACTION SECTION -->
+    <section class="section cta-section" id="partner" aria-labelledby="partner-heading">
+      <div class="container cta-grid">
+        <div class="cta-copy">
+          <span class="mono-tag">03 // Strategic Engagement</span>
+          <h2 id="partner-heading">Partner with Gahara Technologies</h2>
+          <p>
+            True technological advantage requires vision and execution. We work with forward-thinking organizations, industry leaders, and strategic visionaries to build systems that redefine what is possible. If your operations require bespoke engineering, absolute security, and AI-driven precision, we are ready to architect the solution.
+          </p>
+          <p>
+            Reach out to our engineering team to discuss your operational challenges and explore how we can build your next technological advantage.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="#briefing-terminal" class="btn btn-primary" data-mode-trigger="contact">
+              <span>Contact Us</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="#briefing-terminal" class="btn btn-secondary" data-mode-trigger="consultation">
+              <span>Schedule a Consultation</span>
+              <span aria-hidden="true">◷</span>
+            </a>
+          </div>
+
+          <div class="security-assurance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+            <div>
+              <strong>Encrypted Briefing Channel</strong>
+              All architecture consultations and operational disclosures are handled under strict NDA and zero-trust confidentiality protocols.
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Consultation / Project Initiation Terminal -->
+        <div class="terminal-card" id="briefing-terminal">
+          <div class="terminal-header">
+            <span id="terminal-title">CHANNEL // DIRECT ENGINEERING DISPATCH</span>
+            <span>ENCRYPTED TLS 1.3</span>
+          </div>
+          <div class="terminal-body">
+            <div class="mode-switch" role="tablist" aria-label="Engagement Type">
+              <button type="button" class="mode-tab active" data-mode="contact" role="tab" aria-selected="true">
+                Contact Us / Project Brief
+              </button>
+              <button type="button" class="mode-tab" data-mode="consultation" role="tab" aria-selected="false">
+                Schedule a Consultation
+              </button>
+            </div>
+
+            <form id="engagement-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-name">Name / Callsign</label>
+                  <input type="text" id="client-name" class="form-control" placeholder="e.g. Dato' / Commander / Director" required>
+                </div>
+                <div class="form-group">
+                  <label for="client-org">Organization / Enterprise</label>
+                  <input type="text" id="client-org" class="form-control" placeholder="Enterprise or Agency Name" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-email">Official Email</label>
+                  <input type="email" id="client-email" class="form-control" placeholder="name@organization.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="capability-select">Primary Architecture Domain</label>
+                  <select id="capability-select" class="form-control">
+                    <option value="Enterprise Web & Mobile Architecture">Enterprise Web &amp; Mobile Architecture</option>
+                    <option value="Autonomous AI & Marketing Automation">Autonomous AI &amp; Marketing Automation</option>
+                    <option value="Predictive Analytics & Computer Vision">Predictive Analytics &amp; Computer Vision</option>
+                    <option value="Tactical Robotics & UAV Systems">Tactical Robotics &amp; UAV Systems</option>
+                    <option value="Mission-Critical Security Infrastructure">Mission-Critical Security Infrastructure</option>
+                    <option value="Multi-Domain Bespoke Ecosystem">Multi-Domain Bespoke Ecosystem</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" id="consultation-window-group" style="display: none;">
+                <label for="consultation-date">Preferred Technical Consultation Window</label>
+                <input type="text" id="consultation-date" class="form-control" placeholder="e.g. Next Tuesday 14:00 MYT / Executive Briefing">
+              </div>
+
+              <div class="form-group">
+                <label for="operational-brief">Operational Challenge / Mission Brief</label>
+                <textarea id="operational-brief" class="form-control" placeholder="Outline your operational requirements, performance targets, or security parameters..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;" id="submit-btn">
+                <span>Transmit Engineering Brief</span>
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        © <span id="year">2026</span> GAHARA TECHNOLOGIES. ARCHITECTING INTELLIGENCE. ENGINEERING PRECISION.
+      </div>
+      <div class="footer-links">
+        <a href="#top">Top</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#security">Security</a>
+        <a href="#partner">Partner</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Live Telemetry Clock
+    function updateTelemetryClock() {
+      const el = document.getElementById('live-clock');
+      if (!el) return;
+      const now = new Date();
+      const iso = now.toISOString().replace('T', ' ').substring(0, 19);
+      el.textContent = `UTC // ${iso}Z`;
+    }
+    updateTelemetryClock();
+    setInterval(updateTelemetryClock, 1000);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Capabilities Filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const capabilityCards = document.querySelectorAll('.capability-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        capabilityCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Mode Switching for Contact Us / Schedule a Consultation / Initiate a Project
+    const modeTabs = document.querySelectorAll('.mode-tab');
+    const modeTriggers = document.querySelectorAll('[data-mode-trigger]');
+    const consultationWindowGroup = document.getElementById('consultation-window-group');
+    const submitBtn = document.getElementById('submit-btn');
+    const terminalTitle = document.getElementById('terminal-title');
+
+    function setEngagementMode(mode) {
+      modeTabs.forEach((tab) => {
+        const isMatch = tab.getAttribute('data-mode') === (mode === 'consultation' ? 'consultation' : 'contact');
+        tab.classList.toggle('active', isMatch);
+        tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      if (mode === 'consultation') {
+        consultationWindowGroup.style.display = 'block';
+        submitBtn.innerHTML = '<span>Schedule Engineering Consultation</span><span aria-hidden="true">◷</span>';
+        terminalTitle.textContent = 'CHANNEL // SCHEDULE TECHNICAL CONSULTATION';
+      } else {
+        consultationWindowGroup.style.display = 'none';
+        submitBtn.innerHTML = '<span>Initiate Project / Transmit Brief</span><span aria-hidden="true">→</span>';
+        terminalTitle.textContent = 'CHANNEL // DIRECT ENGINEERING DISPATCH';
+      }
+    }
+
+    modeTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        setEngagementMode(tab.getAttribute('data-mode'));
+      });
+    });
+
+    modeTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const mode = trigger.getAttribute('data-mode-trigger');
+        setEngagementMode(mode);
+      });
+    });
+
+    // Form Submission Handler
+    const form = document.getElementById('engagement-form');
+    const formStatus = document.getElementById('form-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('client-name').value.trim();
+      const org = document.getElementById('client-org').value.trim();
+      const domain = document.getElementById('capability-select').value;
+      formStatus.textContent = `[TRANSMISSION CONFIRMED] Thank you, ${name} (${org}). Your briefing request for ${domain} has been logged with Gahara Technologies Engineering Command.`;
+      formStatus.classList.add('visible');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
