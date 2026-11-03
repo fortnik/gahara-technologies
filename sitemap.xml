@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://gahara.tech/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/hero-command.jpg</image:loc>
+      <image:title>Gahara Technologies — Architecting Intelligence. Engineering Precision.</image:title>
+      <image:caption>Mission-critical digital infrastructure, predictive analytics, computer vision, tactical UAV systems, and autonomous AI ecosystems.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/philosophy-operations.jpg</image:loc>
+      <image:title>Gahara Technologies Operational Architecture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/web-mobile-architecture.jpg</image:loc>
+      <image:title>Enterprise Web and Mobile Architecture — Gahara Technologies</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/autonomous-ai.jpg</image:loc>
+      <image:title>Autonomous AI and Marketing Automation — Gahara Technologies</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/predictive-cv-multidomain.jpg</image:loc>
+      <image:title>Predictive Analytics and Computer Vision — Gahara Technologies</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/tactical-uav.jpg</image:loc>
+      <image:title>Tactical Robotics and UAV Systems — Gahara Technologies</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gahara.tech/assets/gahara/security-fortress.jpg</image:loc>
+      <image:title>Mission-Critical Zero-Trust Security Infrastructure — Gahara Technologies</image:title>
+    </image:image>
+  </url>
+</urlset>
