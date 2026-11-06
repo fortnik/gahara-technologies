@@ -925,9 +925,7 @@
       </nav>
 
       <div class="nav-actions">
-        <button type="button" onclick="downloadStandaloneHTML()" class="btn btn-download" title="Download this standalone HTML file">
-          ⬇ Download HTML
-        </button>
+        <a href="#capabilities" class="btn btn-secondary btn-sm">Explore Capabilities</a>
         <a href="#partner" class="btn btn-primary btn-sm" data-mode-trigger="contact">Initiate a Project</a>
       </div>
     </div>
@@ -1310,11 +1308,7 @@
       formStatus.classList.add('visible');
       form.reset();
     });
-
-    // 1-Click Download Standalone HTML
-    function downloadStandaloneHTML() {
-      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+);
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
