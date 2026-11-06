@@ -1331,8 +1331,7 @@
         `${isConsultation ? 'Consultation Agenda' : 'Project Overview'}:`,
         brief
       ];
-      const mailtoUrl = 'mailto:gahara.tech@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('
-'));
+      const mailtoUrl = 'mailto:gahara.tech@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join(String.fromCharCode(13, 10)));
 
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span>Sending to gahara.tech@gmail.com...</span>';
