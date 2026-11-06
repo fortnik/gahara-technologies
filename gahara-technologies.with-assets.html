@@ -1296,16 +1296,63 @@
       trigger.addEventListener('click', () => setEngagementMode(trigger.getAttribute('data-mode-trigger')));
     });
 
-    // Form Submission
+    // Form Submission ? Auto-email to gahara.tech@gmail.com
     const form = document.getElementById('engagement-form');
     const formStatus = document.getElementById('form-status');
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('client-name').value.trim();
       const org = document.getElementById('client-org').value.trim();
+      const email = document.getElementById('client-email').value.trim();
       const domain = document.getElementById('capability-select').value;
-      formStatus.textContent = `Thank you, ${name} (${org}). Your brief for ${domain} has been received by our principal engineering team.`;
+      const consultTime = document.getElementById('consultation-date').value.trim();
+      const brief = document.getElementById('operational-brief').value.trim();
+      const isConsultation = consultationWindowGroup.style.display !== 'none';
+
+      const typeLabel = isConsultation ? 'Consultation Request' : 'Project Brief';
+      const subject = `[Gahara Technologies] ${typeLabel} ? ${org} (${domain})`;
+      const bodyLines = [
+        `Engagement Type: ${typeLabel}`,
+        `Name: ${name}`,
+        `Organization: ${org}`,
+        `Work Email: ${email}`,
+        `Primary Discipline: ${domain}`,
+        ...(isConsultation && consultTime ? [`Preferred Consultation Time: ${consultTime}`] : []),
+        ``,
+        `Project Overview / Brief:`,
+        brief
+      ];
+      const mailtoUrl = `mailto:gahara.tech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('
+'))}`;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending to gahara.tech@gmail.com...</span>';
+
+      try {
+        await fetch('https://formsubmit.co/ajax/gahara.tech@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: subject,
+            Engagement_Type: typeLabel,
+            Name: name,
+            Organization: org,
+            Email: email,
+            Primary_Discipline: domain,
+            Preferred_Consultation_Time: consultTime || 'N/A',
+            Project_Brief: brief
+          })
+        });
+      } catch (err) {
+        // Fallback handled via direct mailto trigger below
+      }
+
+      window.location.href = mailtoUrl;
+
+      formStatus.innerHTML = `Thank you, <strong>${name}</strong> (${org}). Your brief has been routed to <a href="${mailtoUrl}" style="text-decoration:underline;color:inherit">gahara.tech@gmail.com</a>.`;
       formStatus.classList.add('visible');
+      submitBtn.disabled = false;
+      setEngagementMode(isConsultation ? 'consultation' : 'contact');
       form.reset();
     });
 );
