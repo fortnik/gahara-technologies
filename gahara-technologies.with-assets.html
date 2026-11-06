@@ -1265,25 +1265,35 @@
       });
     });
 
-    // Mode Switching
+    // Mode Switching (Initiate a Project vs Schedule a Consultation)
     const modeTabs = document.querySelectorAll('.mode-tab');
     const modeTriggers = document.querySelectorAll('[data-mode-trigger]');
     const consultationWindowGroup = document.getElementById('consultation-window-group');
+    const consultationDateInput = document.getElementById('consultation-date');
+    const briefLabel = document.querySelector('label[for="operational-brief"]');
+    const briefTextarea = document.getElementById('operational-brief');
     const submitBtn = document.getElementById('submit-btn');
 
     function setEngagementMode(mode) {
+      const isConsultation = (mode === 'consultation');
       modeTabs.forEach((tab) => {
-        const isMatch = tab.getAttribute('data-mode') === (mode === 'consultation' ? 'consultation' : 'contact');
+        const isMatch = tab.getAttribute('data-mode') === (isConsultation ? 'consultation' : 'contact');
         tab.classList.toggle('active', isMatch);
         tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
       });
 
-      if (mode === 'consultation') {
+      if (isConsultation) {
         consultationWindowGroup.style.display = 'block';
-        submitBtn.innerHTML = '<span>Request Consultation</span><span aria-hidden="true">→</span>';
+        if (consultationDateInput) consultationDateInput.required = true;
+        if (briefLabel) briefLabel.textContent = 'Consultation Agenda / Discussion Topics';
+        if (briefTextarea) briefTextarea.placeholder = 'Share the key topics, questions, or architecture goals you would like to discuss during the consultation...';
+        submitBtn.innerHTML = '<span>Schedule Consultation</span><span aria-hidden="true">?</span>';
       } else {
         consultationWindowGroup.style.display = 'none';
-        submitBtn.innerHTML = '<span>Send Project Brief</span><span aria-hidden="true">→</span>';
+        if (consultationDateInput) consultationDateInput.required = false;
+        if (briefLabel) briefLabel.textContent = 'Project Overview';
+        if (briefTextarea) briefTextarea.placeholder = 'Tell us briefly about your goals, timeline, or technical challenge...';
+        submitBtn.innerHTML = '<span>Send Project Brief</span><span aria-hidden="true">?</span>';
       }
     }
 
@@ -1309,7 +1319,7 @@
       const isConsultation = consultationWindowGroup.style.display !== 'none';
 
       const typeLabel = isConsultation ? 'Consultation Request' : 'Project Brief';
-      const subject = `[Gahara Technologies] ${typeLabel} ? ${org} (${domain})`;
+      const subject = `[Gahara Technologies] ${typeLabel} - ${org} (${domain})`;
       const bodyLines = [
         `Engagement Type: ${typeLabel}`,
         `Name: ${name}`,
@@ -1318,11 +1328,11 @@
         `Primary Discipline: ${domain}`,
         ...(isConsultation && consultTime ? [`Preferred Consultation Time: ${consultTime}`] : []),
         ``,
-        `Project Overview / Brief:`,
+        `${isConsultation ? 'Consultation Agenda' : 'Project Overview'}:`,
         brief
       ];
-      const mailtoUrl = `mailto:gahara.tech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('
-'))}`;
+      const mailtoUrl = 'mailto:gahara.tech@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('
+'));
 
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span>Sending to gahara.tech@gmail.com...</span>';
@@ -1339,7 +1349,7 @@
             Email: email,
             Primary_Discipline: domain,
             Preferred_Consultation_Time: consultTime || 'N/A',
-            Project_Brief: brief
+            Message: brief
           })
         });
       } catch (err) {
@@ -1348,22 +1358,12 @@
 
       window.location.href = mailtoUrl;
 
-      formStatus.innerHTML = `Thank you, <strong>${name}</strong> (${org}). Your brief has been routed to <a href="${mailtoUrl}" style="text-decoration:underline;color:inherit">gahara.tech@gmail.com</a>.`;
+      formStatus.innerHTML = `Thank you, <strong>${name}</strong> (${org}). Your ${typeLabel.toLowerCase()} has been routed to <a href="${mailtoUrl}" style="text-decoration:underline;color:inherit">gahara.tech@gmail.com</a>.`;
       formStatus.classList.add('visible');
       submitBtn.disabled = false;
       setEngagementMode(isConsultation ? 'consultation' : 'contact');
       form.reset();
     });
-);
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'gahara-tech-redesign-standalone.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
   </script>
 </body>
 </html>
