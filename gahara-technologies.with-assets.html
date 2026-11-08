@@ -869,6 +869,105 @@
       color: var(--ink);
     }
 
+    .hero-grid > *,
+    .philosophy-grid > *,
+    .cta-grid > *,
+    .bento-grid > *,
+    .section-head > * {
+      min-width: 0;
+    }
+
+    /* Mobile Menu Toggle & Drawer */
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle[aria-expanded="true"] {
+      border-color: var(--border-strong);
+      background: var(--champagne-soft);
+      color: var(--champagne);
+    }
+
+    .menu-toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .menu-toggle .icon-close {
+      display: none;
+    }
+
+    .menu-toggle[aria-expanded="true"] .icon-menu {
+      display: none;
+    }
+
+    .menu-toggle[aria-expanded="true"] .icon-close {
+      display: block;
+    }
+
+    .mobile-nav {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: rgba(7, 8, 11, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 20px clamp(20px, 5vw, 40px) 26px;
+    }
+
+    .mobile-nav.open {
+      display: block;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 18px;
+    }
+
+    .mobile-nav-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 14px;
+      border-radius: 12px;
+      font-size: 0.96rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a:active {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ink);
+    }
+
+    .mobile-nav-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-nav-actions .btn {
+      width: 100%;
+    }
+
     /* Responsive Breakpoints */
     @media (max-width: 1024px) {
       .hero-grid,
@@ -879,24 +978,291 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-grid {
+        gap: 2.5rem;
+      }
+
+      .philosophy-grid,
+      .cta-grid {
+        gap: 3rem;
+      }
+
+      .hero-lead,
+      .hero-stats,
+      .cta-copy p,
+      .trust-note {
+        max-width: 100%;
+      }
+
       .bento-card.featured .bento-media {
-        min-height: 280px;
+        aspect-ratio: 4 / 3;
+        min-height: 260px;
       }
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
+    @media (max-width: 820px) {
+      .nav-inner {
+        height: 70px;
+        gap: 12px;
+      }
+
+      .nav-links,
+      .nav-actions .btn-secondary {
         display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+        gap: 10px;
       }
 
       .form-row,
       .pillars-minimal {
         grid-template-columns: 1fr;
       }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .nav-inner {
+        height: 64px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+      }
+
+      .brand-name {
+        font-size: 0.92rem;
+        letter-spacing: 0.1em;
+      }
+
+      .brand-sub {
+        font-size: 0.56rem;
+        letter-spacing: 0.12em;
+      }
+
+      .nav-actions .btn-primary {
+        padding: 8px 14px;
+        font-size: 0.74rem;
+      }
+
+      .hero {
+        padding: 2.5rem 0 3.5rem;
+      }
+
+      .eyebrow {
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+        gap: 8px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.05rem, 8.2vw, 2.65rem);
+        line-height: 1.08;
+        margin: 1rem 0 1.15rem;
+      }
+
+      .hero-lead {
+        font-size: 0.96rem;
+        line-height: 1.68;
+        margin-bottom: 1.75rem;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 2.25rem;
+      }
+
+      .hero-cta-group .btn {
+        width: 100%;
+        padding: 14px 20px;
+      }
 
       .hero-stats {
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        gap: 10px;
+        padding-top: 1.5rem;
+      }
+
+      .stat-val {
+        font-size: 1.2rem;
+      }
+
+      .stat-label {
+        font-size: 0.7rem;
+        line-height: 1.35;
+      }
+
+      .art-frame {
+        border-radius: 18px;
+      }
+
+      .art-frame img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .art-caption {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 0.7rem;
+      }
+
+      .art-pill {
+        padding: 5px 11px;
+        font-size: 0.6rem;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-head {
+        margin-bottom: 2rem;
+        gap: 16px;
+      }
+
+      .section-title,
+      .philosophy-copy h2,
+      .cta-copy h2 {
+        font-size: clamp(1.75rem, 7vw, 2.25rem);
+        line-height: 1.14;
+      }
+
+      .philosophy-copy p,
+      .cta-copy p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Horizontal touch scroll for filter pills on mobile */
+      .filter-bar {
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+      }
+
+      .filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        flex-shrink: 0;
+        padding: 8px 15px;
+        font-size: 0.75rem;
+      }
+
+      .bento-grid {
+        gap: 20px;
+      }
+
+      .bento-card {
+        border-radius: 18px;
+      }
+
+      .bento-badge {
+        top: 12px;
+        left: 12px;
+        padding: 5px 11px;
+        font-size: 0.6rem;
+      }
+
+      .bento-body {
+        padding: 1.35rem 1.2rem 1.5rem;
+      }
+
+      .bento-body h3 {
+        font-size: 1.28rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .bento-body p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+      }
+
+      .bento-tags {
+        gap: 6px;
+      }
+
+      .bento-tags span {
+        font-size: 0.68rem;
+        padding: 4px 10px;
+      }
+
+      .studio-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 18px;
+      }
+
+      .mode-switch {
+        grid-template-columns: 1fr;
+        border-radius: 14px;
+        padding: 6px;
+        gap: 6px;
+        margin-bottom: 1.5rem;
+      }
+
+      .mode-tab {
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+      }
+
+      /* 16px font-size prevents iOS Safari auto-zoom on focus */
+      .form-control {
+        font-size: 16px;
+        padding: 12px 14px;
+      }
+
+      .site-footer {
+        padding: 2.5rem 0;
+        font-size: 0.78rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-actions .btn-primary {
+        display: none;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
     }
   </style>
@@ -926,8 +1292,30 @@
       <div class="nav-actions">
         <a href="#capabilities" class="btn btn-secondary btn-sm">Explore Capabilities</a>
         <a href="#partner" class="btn btn-primary btn-sm" data-mode-trigger="contact">Initiate a Project</a>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle Menu">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="8" x2="20" y2="8"></line>
+            <line x1="4" y1="16" x2="20" y2="16"></line>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-links">
+        <li><a href="#philosophy">Philosophy <span aria-hidden="true">?</span></a></li>
+        <li><a href="#capabilities">Capabilities <span aria-hidden="true">?</span></a></li>
+        <li><a href="#security">Security <span aria-hidden="true">?</span></a></li>
+        <li><a href="#partner">Engage <span aria-hidden="true">?</span></a></li>
+      </ul>
+      <div class="mobile-nav-actions">
+        <a href="#partner" class="btn btn-primary btn-sm" data-mode-trigger="contact">Initiate a Project</a>
+        <a href="#partner" class="btn btn-secondary btn-sm" data-mode-trigger="consultation">Schedule a Consultation</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -1248,6 +1636,23 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      mobileNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
     // Capabilities Filter
     const filterButtons = document.querySelectorAll('.filter-btn');
     const capabilityCards = document.querySelectorAll('.bento-card');
@@ -1287,13 +1692,13 @@
         if (consultationDateInput) consultationDateInput.required = true;
         if (briefLabel) briefLabel.textContent = 'Consultation Agenda / Discussion Topics';
         if (briefTextarea) briefTextarea.placeholder = 'Share the key topics, questions, or architecture goals you would like to discuss during the consultation...';
-        submitBtn.innerHTML = '<span>Schedule Consultation</span><span aria-hidden="true">?</span>';
+        submitBtn.innerHTML = '<span>Schedule Consultation</span><span aria-hidden="true">&rarr;</span>';
       } else {
         consultationWindowGroup.style.display = 'none';
         if (consultationDateInput) consultationDateInput.required = false;
         if (briefLabel) briefLabel.textContent = 'Project Overview';
         if (briefTextarea) briefTextarea.placeholder = 'Tell us briefly about your goals, timeline, or technical challenge...';
-        submitBtn.innerHTML = '<span>Send Project Brief</span><span aria-hidden="true">?</span>';
+        submitBtn.innerHTML = '<span>Send Project Brief</span><span aria-hidden="true">&rarr;</span>';
       }
     }
 
@@ -1305,7 +1710,7 @@
       trigger.addEventListener('click', () => setEngagementMode(trigger.getAttribute('data-mode-trigger')));
     });
 
-    // Form Submission ? Auto-email to gahara.tech@gmail.com
+    // Form Submission -> Auto-email to gahara.tech@gmail.com
     const form = document.getElementById('engagement-form');
     const formStatus = document.getElementById('form-status');
     form.addEventListener('submit', async (e) => {
