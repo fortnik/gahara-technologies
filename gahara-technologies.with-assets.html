@@ -2,17 +2,7 @@
 <html lang="en" class="js">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" id="vp-meta" content="width=device-width, initial-scale=1.0">
-  <script>
-    (function () {
-      var meta = document.getElementById('vp-meta');
-      var w = document.documentElement.clientWidth || window.innerWidth || (window.screen && window.screen.width) || 1280;
-      if (w > 0 && w < 1280) {
-        var scale = (w / 1280).toFixed(6);
-        meta.setAttribute('content', 'width=1280, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=5.0, user-scalable=yes');
-      }
-    })();
-  </script>
+  <meta name="viewport" content="width=1024">
   <title>Gahara Technologies (gahara.tech) — Architecting Intelligence. Engineering Precision.</title>
   <meta name="description" content="Gahara Technologies engineers bespoke digital platforms, autonomous AI, predictive computer vision, aerial robotics, and zero-trust security systems.">
   <meta name="theme-color" content="#07080B">
@@ -74,7 +64,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
+      <style>
     :root {
       color-scheme: dark;
       --bg-canvas: #07080B;
@@ -94,10 +84,10 @@
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
-      --radius-lg: 1.5rem;
-      --radius-md: 1rem;
+      --radius-lg: 24px;
+      --radius-md: 16px;
       --radius-pill: 999px;
-      --max-w: 80rem;
+      --max-w: 1280px;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -111,17 +101,9 @@
       scroll-behavior: smooth;
       background: var(--bg-canvas);
       color: var(--ink);
-      font-size: 16px;
-      -webkit-text-size-adjust: none;
-      text-size-adjust: none;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
       overflow-x: hidden;
-      width: 100%;
-    }
-
-    @media (max-width: 1279px) {
-      html {
-        font-size: calc(100vw / 80);
-      }
     }
 
     body {
@@ -132,7 +114,7 @@
         var(--bg-canvas);
       color: var(--ink);
       line-height: 1.7;
-      font-size: 1rem;
+      font-size: 16px;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       width: 100%;
@@ -157,14 +139,14 @@
       width: 100%;
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 3.25rem;
+      padding: 0 clamp(28px, 4vw, 56px);
     }
 
     /* Minimal Luxury Eyebrow Tag */
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.625rem;
+      gap: 10px;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       letter-spacing: 0.18em;
@@ -174,11 +156,11 @@
 
     .eyebrow::before {
       content: '';
-      width: 0.375rem;
-      height: 0.375rem;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--champagne);
-      box-shadow: 0 0 0.75rem var(--champagne);
+      box-shadow: 0 0 12px var(--champagne);
     }
 
     /* Sticky Glass Header */
@@ -196,27 +178,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 5.25rem;
-      gap: 1.5rem;
+      height: 80px;
+      gap: 20px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.875rem;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
     .brand-mark {
-      width: 2.625rem;
-      height: 2.625rem;
-      border-radius: 0.625rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
       background: #07080B;
       border: 1px solid var(--border-strong);
       display: grid;
       place-items: center;
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
     }
 
     .brand-mark img {
@@ -246,13 +229,13 @@
       letter-spacing: 0.16em;
       color: var(--ink-muted);
       text-transform: uppercase;
-      margin-top: 0.125rem;
+      margin-top: 2px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2.5rem;
+      gap: clamp(20px, 2.8vw, 40px);
       list-style: none;
     }
 
@@ -261,6 +244,7 @@
       color: var(--ink-secondary);
       letter-spacing: 0.02em;
       transition: color 0.25s ease;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -270,7 +254,8 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
     /* Buttons */
@@ -278,11 +263,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.625rem;
+      gap: 10px;
       font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.02em;
-      padding: 0.8125rem 1.625rem;
+      padding: 13px 24px;
       border-radius: var(--radius-pill);
       border: 1px solid transparent;
       cursor: pointer;
@@ -294,13 +279,13 @@
       background: var(--ink);
       color: #07080B;
       border-color: var(--ink);
-      box-shadow: 0 0.625rem 1.875rem rgba(244, 243, 239, 0.12);
+      box-shadow: 0 10px 30px rgba(244, 243, 239, 0.12);
     }
 
     .btn-primary:hover {
       background: #FFFFFF;
       transform: translateY(-2px);
-      box-shadow: 0 0.875rem 2.375rem rgba(244, 243, 239, 0.2);
+      box-shadow: 0 14px 38px rgba(244, 243, 239, 0.2);
     }
 
     .btn-secondary {
@@ -316,30 +301,30 @@
     }
 
     .btn-sm {
-      padding: 0.625rem 1.25rem;
+      padding: 10px 18px;
       font-size: 0.8rem;
     }
 
     /* 1. HERO SECTION ? Spacious Editorial Layout */
     .hero {
-      padding: 5.5rem 0 6.5rem;
+      padding: clamp(3.5rem, 6vw, 6.5rem) 0 clamp(4.5rem, 7vw, 7.5rem);
       border-bottom: 1px solid var(--border);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1.08fr;
-      gap: 4rem;
+      gap: clamp(2.25rem, 4.5vw, 5rem);
       align-items: center;
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 4.2vw, 4.5rem);
       font-weight: 500;
       line-height: 1.04;
       letter-spacing: -0.035em;
-      margin: 1.35rem 0 1.5rem;
+      margin: 1.2rem 0 1.35rem;
     }
 
     .hero-title em {
@@ -351,42 +336,42 @@
     }
 
     .hero-lead {
-      font-size: 1.12rem;
+      font-size: clamp(1rem, 1.15vw, 1.15rem);
       color: var(--ink-secondary);
-      line-height: 1.8;
-      max-width: 32.5rem;
-      margin-bottom: 2.5rem;
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 2.25rem;
       font-weight: 300;
     }
 
     .hero-cta-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.875rem;
-      margin-bottom: 3.5rem;
+      gap: 12px;
+      margin-bottom: 3rem;
     }
 
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      padding-top: 2rem;
+      gap: 20px;
+      padding-top: 1.75rem;
       border-top: 1px solid var(--border);
-      max-width: 32.5rem;
+      max-width: 520px;
     }
 
     .stat-val {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 500;
       color: var(--ink);
       letter-spacing: -0.02em;
     }
 
     .stat-label {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--ink-muted);
-      margin-top: 0.125rem;
+      margin-top: 2px;
     }
 
     /* Artistic Portrait Frame */
@@ -396,7 +381,7 @@
       overflow: hidden;
       background: var(--bg-elevated);
       border: 1px solid var(--border);
-      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.65);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65);
     }
 
     .art-frame img {
@@ -420,23 +405,23 @@
 
     .art-caption {
       position: absolute;
-      left: 1.5rem;
-      right: 1.5rem;
-      bottom: 1.375rem;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
       z-index: 2;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-      font-size: 0.78rem;
+      gap: 12px;
+      font-size: 0.76rem;
       color: rgba(244, 243, 239, 0.88);
     }
 
     .art-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.375rem 0.875rem;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
       background: rgba(7, 8, 11, 0.68);
       backdrop-filter: blur(12px);
@@ -450,7 +435,7 @@
 
     /* Generic Section Spacing ? Extra Spacious */
     .section {
-      padding: 7rem 0;
+      padding: clamp(5rem, 8vw, 8rem) 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -459,13 +444,13 @@
       flex-wrap: wrap;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
+      gap: 24px;
+      margin-bottom: clamp(3rem, 5vw, 4.5rem);
     }
 
     .section-title {
       font-family: var(--font-display);
-      font-size: 2.85rem;
+      font-size: clamp(2rem, 3.4vw, 3.2rem);
       font-weight: 500;
       line-height: 1.1;
       letter-spacing: -0.03em;
@@ -483,13 +468,13 @@
     .philosophy-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 4rem;
+      gap: clamp(2.5rem, 5vw, 5rem);
       align-items: center;
     }
 
     .philosophy-copy h2 {
       font-family: var(--font-display);
-      font-size: 2.75rem;
+      font-size: clamp(2rem, 3.2vw, 3.1rem);
       font-weight: 500;
       line-height: 1.12;
       letter-spacing: -0.03em;
@@ -504,32 +489,32 @@
     }
 
     .philosophy-copy p {
-      font-size: 1.08rem;
+      font-size: 1.04rem;
       color: var(--ink-secondary);
-      line-height: 1.85;
+      line-height: 1.8;
       font-weight: 300;
-      margin-bottom: 2.25rem;
+      margin-bottom: 2rem;
     }
 
     .pillars-minimal {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      padding-top: 2rem;
+      gap: 20px;
+      padding-top: 1.75rem;
       border-top: 1px solid var(--border);
     }
 
     .pillar-item strong {
       display: block;
       font-family: var(--font-display);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 500;
       color: var(--ink);
-      margin-bottom: 0.25rem;
+      margin-bottom: 4px;
     }
 
     .pillar-item span {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--ink-muted);
       line-height: 1.5;
     }
@@ -538,12 +523,12 @@
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 8px;
     }
 
     .filter-btn {
       font-size: 0.78rem;
-      padding: 0.5625rem 1.125rem;
+      padding: 9px 18px;
       border-radius: var(--radius-pill);
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
@@ -562,7 +547,7 @@
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2rem;
+      gap: 28px;
     }
 
     .bento-card {
@@ -598,7 +583,7 @@
 
     .bento-card.featured .bento-media {
       aspect-ratio: auto;
-      min-height: 25rem;
+      min-height: 380px;
     }
 
     .bento-media img {
@@ -622,10 +607,10 @@
 
     .bento-badge {
       position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
+      top: 18px;
+      left: 18px;
       z-index: 2;
-      padding: 0.375rem 0.8125rem;
+      padding: 6px 13px;
       border-radius: var(--radius-pill);
       background: rgba(7, 8, 11, 0.72);
       backdrop-filter: blur(12px);
@@ -638,7 +623,7 @@
     }
 
     .bento-body {
-      padding: 2.5rem;
+      padding: clamp(1.75rem, 3vw, 2.75rem);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -656,25 +641,25 @@
 
     .bento-body h3 {
       font-family: var(--font-display);
-      font-size: 1.65rem;
+      font-size: clamp(1.35rem, 1.9vw, 1.8rem);
       font-weight: 500;
       line-height: 1.2;
       letter-spacing: -0.02em;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
 
     .bento-body p {
       color: var(--ink-secondary);
-      font-size: 0.98rem;
-      line-height: 1.75;
+      font-size: 0.95rem;
+      line-height: 1.72;
       font-weight: 300;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .bento-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 8px;
       margin-top: auto;
     }
 
@@ -683,7 +668,7 @@
       color: var(--ink-secondary);
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
-      padding: 0.3125rem 0.8125rem;
+      padding: 5px 13px;
       border-radius: var(--radius-pill);
     }
 
@@ -691,13 +676,13 @@
     .cta-grid {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
-      gap: 4rem;
+      gap: clamp(2.5rem, 5vw, 5rem);
       align-items: start;
     }
 
     .cta-copy h2 {
       font-family: var(--font-display);
-      font-size: 2.9rem;
+      font-size: clamp(2.1rem, 3.5vw, 3.3rem);
       font-weight: 500;
       line-height: 1.1;
       letter-spacing: -0.03em;
@@ -712,28 +697,28 @@
     }
 
     .cta-copy p {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--ink-secondary);
-      line-height: 1.8;
+      line-height: 1.78;
       font-weight: 300;
       margin-bottom: 2rem;
-      max-width: 29.375rem;
+      max-width: 470px;
     }
 
     .trust-note {
       display: flex;
       align-items: center;
-      gap: 0.875rem;
-      padding: 1.125rem 1.25rem;
+      gap: 14px;
+      padding: 18px 20px;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
-      max-width: 29.375rem;
+      max-width: 470px;
     }
 
     .trust-note svg {
-      width: 1.375rem;
-      height: 1.375rem;
+      width: 22px;
+      height: 22px;
       color: var(--champagne);
       flex-shrink: 0;
     }
@@ -748,7 +733,7 @@
       display: block;
       color: var(--ink);
       font-weight: 500;
-      margin-bottom: 0.125rem;
+      margin-bottom: 2px;
     }
 
     /* Sleek Glass Studio Form */
@@ -756,23 +741,23 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      box-shadow: 0 1.75rem 4.375rem rgba(0, 0, 0, 0.5);
+      padding: clamp(1.75rem, 3.5vw, 2.75rem);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
     }
 
     .mode-switch {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      padding: 0.3125rem;
+      gap: 8px;
+      padding: 5px;
       background: rgba(7, 8, 11, 0.65);
       border: 1px solid var(--border);
       border-radius: var(--radius-pill);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .mode-tab {
-      padding: 0.625rem 1rem;
+      padding: 10px 14px;
       font-size: 0.8rem;
       font-weight: 500;
       border-radius: var(--radius-pill);
@@ -792,27 +777,27 @@
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
     }
 
     .form-group label {
       display: block;
       font-size: 0.78rem;
       color: var(--ink-secondary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
     }
 
     .form-control {
       width: 100%;
-      padding: 0.8125rem 1rem;
+      padding: 13px 16px;
       background: rgba(7, 8, 11, 0.7);
       border: 1px solid var(--border);
-      border-radius: 0.75rem;
+      border-radius: 12px;
       color: var(--ink);
       font-size: 0.92rem;
       transition: border-color 0.2s ease;
@@ -825,14 +810,14 @@
 
     textarea.form-control {
       resize: vertical;
-      min-height: 6.5rem;
+      min-height: 104px;
     }
 
     .form-status {
       display: none;
-      margin-top: 1rem;
-      padding: 0.875rem 1rem;
-      border-radius: 0.75rem;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
       background: rgba(214, 195, 165, 0.12);
       border: 1px solid var(--border-strong);
       color: var(--champagne);
@@ -855,12 +840,12 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1.25rem;
+      gap: 20px;
     }
 
     .footer-links {
       display: flex;
-      gap: 1.75rem;
+      gap: 28px;
     }
 
     .footer-links a:hover {
