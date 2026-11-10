@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gahara Technologies (gahara.tech) — Architecting Intelligence. Engineering Precision.</title>
+  <meta name="description" content="Gahara Technologies engineers bespoke digital platforms, autonomous AI, predictive computer vision, aerial robotics, and zero-trust security systems.">
+  <meta name="theme-color" content="#fdfdfb">
+  <link rel="canonical" href="https://gahara.tech/">
+  <meta name="keywords" content="gahara.tech, Gahara Technologies, Gahara Tech, Architecting Intelligence Engineering Precision, enterprise web architecture, mobile architecture, autonomous AI, workflow automation, predictive analytics, computer vision, tactical robotics, UAV systems, zero-trust cybersecurity">
+  <meta name="author" content="Gahara Technologies">
+  <meta name="application-name" content="Gahara Technologies">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="google-site-verification" content="YAKn2_0DX0wbBlbuVplMEhSn-b8slAfHlAG3odKq7LM">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gahara.tech/">
+  <meta property="og:site_name" content="Gahara Technologies">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Gahara Technologies (gahara.tech) | Architecting Intelligence. Engineering Precision.">
+  <meta property="og:description" content="We build custom digital platforms, autonomous AI, and mission-critical systems for organizations that demand effortless scale and absolute security.">
+  <meta property="og:image" content="https://gahara.tech/assets/gahara/hero-command.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://gahara.tech/">
+  <meta name="twitter:title" content="Gahara Technologies (gahara.tech) | Architecting Intelligence. Engineering Precision.">
+  <meta name="twitter:description" content="We build custom digital platforms, autonomous AI, predictive computer vision, aerial robotics, and zero-trust security systems.">
+  <meta name="twitter:image" content="https://gahara.tech/assets/gahara/hero-command.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://gahara.tech/#website",
+        "url": "https://gahara.tech/",
+        "name": "Gahara Technologies",
+        "alternateName": ["gahara.tech", "Gahara Tech"],
+        "publisher": { "@id": "https://gahara.tech/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://gahara.tech/#organization",
+        "name": "Gahara Technologies",
+        "legalName": "Gahara Technologies (NS0328808-M)",
+        "identifier": "NS0328808-M",
+        "url": "https://gahara.tech/",
+        "logo": "https://gahara.tech/assets/gahara/gahara-logo-square.png",
+        "slogan": "Architecting Intelligence. Engineering Precision.",
+        "image": "https://gahara.tech/assets/gahara/hero-command.jpg",
+        "sameAs": ["https://github.com/fortnik/gahara-technologies"]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="assets/gahara/gahara-logo-square.png">
+  <link rel="apple-touch-icon" href="assets/gahara/gahara-logo-square.png">
+
+  <style>
+    :root{
+      --ink:#111;
+      --muted:#666;
+      --line:#d9d9d7;
+      --paper:#fdfdfb;
+      --soft:#f3f3f0;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font:16px/1.5 "Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit;color:inherit}
+    .wrap{width:min(100% - 72px, 1480px);margin-inline:auto}
+    .eyebrow,.section-index,.meta,.nav-links,.text-link,.button,.tag,.mode-tab{
+      font-size:.7rem;
+      line-height:1.2;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .section-index{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      color:#767676;
+    }
+    .section-index::before{
+      content:"";
+      width:30px;
+      height:1px;
+      background:currentColor;
+      display:inline-block;
+    }
+
+    /* Header */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(253,253,251,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:86px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      font-weight:800;
+      letter-spacing:-.04em;
+      font-size:1.12rem;
+    }
+    .brand-mark{
+      width:40px;
+      height:40px;
+      border-radius:4px;
+      background:#07080B;
+      border:1px solid var(--ink);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:38px;
+      color:#6f6f6f;
+    }
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{
+      background:var(--ink);
+      color:var(--white)!important;
+      padding:13px 20px;
+      border-radius:2px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .menu-button{
+      display:none;
+      border:1px solid var(--ink);
+      background:transparent;
+      padding:10px 14px;
+      cursor:pointer;
+      font-size:.7rem;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    /* Hero */
+    .hero{padding:24px 0 92px;border-bottom:1px solid var(--line)}
+    .hero-top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      color:#555;
+      padding-bottom:36px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.03fr .97fr;
+      gap:54px;
+      align-items:stretch;
+      min-height:670px;
+    }
+    .hero-copy{
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding-bottom:18px;
+    }
+    h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.055em}
+    h1{
+      font-size:clamp(4.8rem, 9.8vw, 10.4rem);
+      line-height:.84;
+      letter-spacing:-.085em;
+      margin-bottom:38px;
+    }
+    .hero-headline-sub{
+      display:block;
+      font-size:clamp(1.25rem, 2vw, 1.75rem);
+      font-weight:600;
+      letter-spacing:-.035em;
+      line-height:1.2;
+      color:var(--ink);
+      margin-bottom:14px;
+    }
+    .hero-tagline{
+      max-width:540px;
+      font-size:clamp(1.08rem, 1.55vw, 1.38rem);
+      line-height:1.45;
+      color:#2b2b2b;
+      font-weight:400;
+      margin:0 0 34px;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:24px;
+    }
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      background:var(--ink);
+      color:var(--white);
+      padding:18px 28px;
+      border:1px solid var(--ink);
+      cursor:pointer;
+      transition:transform .18s ease, background .18s ease, color .18s ease;
+    }
+    .button:hover{background:#2a2a2a;transform:translateY(-1px)}
+    .button-light{background:var(--white);color:var(--ink);border-color:var(--white)}
+    .button-light:hover{background:#e9e9e6;color:var(--ink)}
+    .button-outline-light{background:transparent;color:var(--white);border-color:#555}
+    .button-outline-light:hover{background:#222;border-color:var(--white)}
+    .text-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding-bottom:6px;
+      border-bottom:1px solid var(--ink);
+    }
+    .hero-visual{
+      position:relative;
+      min-height:660px;
+      background:#ddd;
+      overflow:hidden;
+    }
+    .hero-visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+    .visual-note{
+      position:absolute;
+      left:26px;
+      bottom:26px;
+      width:min(320px, calc(100% - 52px));
+      background:var(--white);
+      padding:24px 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.14);
+    }
+    .visual-note strong{
+      display:block;
+      font-size:2.35rem;
+      line-height:1;
+      letter-spacing:-.06em;
+      margin-bottom:8px;
+    }
+    .visual-note span{
+      display:block;
+      color:#666;
+      font-size:.66rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+      line-height:1.45;
+    }
+
+    /* Sections */
+    .section{padding:116px 0;border-bottom:1px solid var(--line)}
+    .section-heading{
+      display:grid;
+      grid-template-columns:1fr 2.1fr;
+      gap:48px;
+      align-items:start;
+      margin-bottom:74px;
+    }
+    h2{
+      font-size:clamp(2.45rem, 4.7vw, 4.55rem);
+      line-height:.98;
+    }
+    .lead{
+      font-size:clamp(1.06rem, 1.45vw, 1.28rem);
+      line-height:1.58;
+      color:#444;
+      max-width:780px;
+      margin:28px 0 0;
+    }
+
+    /* Perspective / Project style block */
+    .project-images{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:42px;
+      align-items:end;
+    }
+    .project-images .frame{
+      background:#ecece8;
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+    .project-images .tall{height:600px;width:100%;object-fit:cover}
+    .project-images .short{height:450px;width:100%;object-fit:cover}
+    .project-caption{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:24px;
+      padding-top:26px;
+      margin-top:26px;
+      border-top:1px solid var(--line);
+    }
+    .project-caption strong{
+      font-size:1.45rem;
+      letter-spacing:-.04em;
+    }
+
+    /* Dark manifesto */
+    .manifesto{
+      background:var(--ink);
+      color:var(--white);
+      padding:126px 0;
+    }
+    .manifesto-grid{
+      display:grid;
+      grid-template-columns:1fr 2.1fr;
+      gap:48px;
+    }
+    .manifesto .section-index{color:#8e8e8e}
+    .manifesto h2{color:var(--white);max-width:920px}
+    .manifesto-copy{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:42px;
+      margin-top:52px;
+      padding-top:42px;
+      border-top:1px solid #2c2c2c;
+      color:#b8b8b4;
+      font-size:1.05rem;
+      line-height:1.68;
+    }
+    .outcome-row{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:18px;
+      margin-top:48px;
+    }
+    .outcome-row span{
+      border:1px solid #2f2f2f;
+      padding:18px;
+      font-size:.72rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#dfdfd9;
+      font-weight:700;
+    }
+
+    /* Capabilities Interactive Index & Showcase */
+    .service-toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      margin-bottom:28px;
+      padding-bottom:20px;
+      border-bottom:1px solid var(--line);
+      flex-wrap:wrap;
+    }
+    .filter-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .filter-pill{
+      border:1px solid var(--line);
+      background:var(--white);
+      padding:10px 14px;
+      cursor:pointer;
+      font-size:.66rem;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:#555;
+      transition:all .15s ease;
+    }
+    .filter-pill:hover,.filter-pill.active{
+      background:var(--ink);
+      color:var(--white);
+      border-color:var(--ink);
+    }
+    .toolbar-controls{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .service-search{
+      width:min(300px, 100%);
+      border:1px solid var(--line);
+      background:var(--white);
+      padding:12px 14px;
+      outline:none;
+      font-size:.88rem;
+    }
+    .service-search:focus{border-color:var(--ink)}
+    .pillar-list{border-top:1px solid var(--ink)}
+    details.pillar{
+      border-bottom:1px solid var(--line);
+      padding:28px 0;
+    }
+    details.pillar summary{
+      list-style:none;
+      cursor:pointer;
+      display:grid;
+      grid-template-columns:110px 1.2fr 1fr 44px;
+      gap:24px;
+      align-items:baseline;
+    }
+    details.pillar summary::-webkit-details-marker{display:none}
+    .pillar-num{
+      font-size:.78rem;
+      letter-spacing:.16em;
+      color:#777;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+    .pillar-title{
+      font-size:clamp(1.55rem, 2.5vw, 2.35rem);
+      letter-spacing:-.045em;
+      font-weight:600;
+    }
+    .pillar-sub{color:#555;font-size:.98rem}
+    .plus{
+      justify-self:end;
+      font-size:1.5rem;
+      line-height:1;
+      transition:transform .2s ease;
+    }
+    details[open] > summary .plus{transform:rotate(45deg)}
+    .discipline-showcase{
+      margin-top:28px;
+      padding-top:28px;
+      border-top:1px solid var(--line);
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:40px;
+      align-items:center;
+    }
+    .discipline-media{
+      background:#ecece8;
+      border:1px solid var(--line);
+      overflow:hidden;
+      aspect-ratio:16 / 10;
+    }
+    .discipline-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .6s ease;
+    }
+    .discipline-media:hover img{transform:scale(1.02)}
+    .discipline-copy{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    .discipline-copy p{
+      margin:0;
+      font-size:1.08rem;
+      line-height:1.65;
+      color:#333;
+    }
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      display:inline-block;
+      border:1px solid var(--line);
+      padding:8px 12px;
+      background:var(--white);
+      color:#333;
+    }
+
+    /* Portfolio Blueprint Grid */
+    .blueprint-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--ink);
+      border-left:1px solid var(--ink);
+    }
+    .blueprint-card{
+      border-right:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+      padding:28px;
+      background:var(--paper);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:20px;
+      transition:background .2s ease;
+    }
+    .blueprint-card:hover{background:var(--soft)}
+    .blueprint-thumb{
+      aspect-ratio:16 / 10;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#e9e9e5;
+    }
+    .blueprint-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:top center;
+      transition:transform .5s ease;
+    }
+    .blueprint-card:hover .blueprint-thumb img{transform:scale(1.03)}
+    .blueprint-card h3{
+      font-size:1.45rem;
+      line-height:1.15;
+      margin:10px 0 6px;
+    }
+    .blueprint-card p{color:#4d4d4d;margin:0;font-size:.94rem;line-height:1.55}
+
+    /* Security / Fractional-style Split Section */
+    .fractional{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:58px;
+      align-items:center;
+    }
+    .fractional-box{
+      background:var(--soft);
+      padding:46px;
+      border:1px solid var(--line);
+    }
+    .advisory-pillars{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:34px 0;
+    }
+    .advisory-pillars div{
+      border-top:1px solid var(--ink);
+      padding-top:14px;
+    }
+    .advisory-pillars b{
+      display:block;
+      font-size:.76rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+    .advisory-pillars span{
+      font-size:.92rem;
+      color:#444;
+      line-height:1.45;
+      display:block;
+    }
+
+    /* Contact / Private Briefing */
+    .contact{
+      background:var(--ink);
+      color:var(--white);
+      padding:116px 0 58px;
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
+      gap:64px;
+      padding-bottom:92px;
+      border-bottom:1px solid #2b2b2b;
+    }
+    .contact .section-index{color:#8e8e8e}
+    .contact h2{
+      color:var(--white);
+      font-size:clamp(3rem, 6vw, 5.6rem);
+      margin:24px 0 22px;
+    }
+    .contact .lead{color:#b6b6b2;margin-top:0}
+    .contact-facts{
+      margin-top:42px;
+      border-top:1px solid #2b2b2b;
+    }
+    .contact-fact{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding:16px 0;
+      border-bottom:1px solid #2b2b2b;
+      color:#d6d6d2;
+      font-size:.95rem;
+    }
+    .contact-fact b{
+      font-size:.7rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#8e8e8e;
+    }
+    .mode-switch{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      border:1px solid #3a3a3a;
+      margin-bottom:28px;
+    }
+    .mode-tab{
+      padding:14px 16px;
+      background:transparent;
+      border:none;
+      color:#9e9e9a;
+      cursor:pointer;
+      text-align:center;
+      transition:all .18s ease;
+    }
+    .mode-tab.active{
+      background:var(--white);
+      color:var(--ink);
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+    .form-grid label{
+      display:block;
+      font-size:.68rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#9e9e9a;
+      font-weight:700;
+    }
+    .form-grid input,.form-grid select,.form-grid textarea{
+      width:100%;
+      margin-top:10px;
+      padding:14px 0;
+      background:transparent;
+      border:0;
+      border-bottom:1px solid #444;
+      color:var(--white);
+      outline:none;
+      border-radius:0;
+    }
+    .form-grid select option{background:var(--ink);color:var(--white)}
+    .form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{
+      border-bottom-color:var(--white);
+    }
+    .span-2{grid-column:1 / -1}
+    .form-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+    }
+    .form-status{
+      margin:12px 0 0;
+      color:#9f9f9b;
+      font-size:.86rem;
+      line-height:1.5;
+    }
+    .footer{
+      padding-top:34px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      color:#8a8a86;
+      font-size:.7rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .footer-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+    .footer-links a:hover{color:var(--white)}
+
+    @media (max-width: 1100px){
+      .hero-grid,.section-heading,.manifesto-grid,.fractional,.contact-grid,.project-images,.discipline-showcase{
+        grid-template-columns:1fr;
+      }
+      .hero-visual{min-height:520px}
+      .outcome-row{grid-template-columns:repeat(2,1fr)}
+      .blueprint-grid{grid-template-columns:1fr 1fr}
+      details.pillar summary{grid-template-columns:70px 1fr 32px}
+      .pillar-sub{grid-column:2 / 3}
+    }
+    @media (max-width: 900px){
+      .wrap{width:min(100% - 40px, 1480px)}
+      .menu-button{display:inline-flex}
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:86px;
+        background:var(--paper);
+        border-bottom:1px solid var(--line);
+        padding:24px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+      }
+      .nav-links.open{display:flex}
+      .section,.manifesto,.contact{padding:78px 0}
+      .manifesto-copy,.blueprint-grid,.form-grid,.advisory-pillars,.outcome-row{
+        grid-template-columns:1fr;
+      }
+      .project-images .tall,.project-images .short{height:360px}
+      .fractional-box{padding:28px}
+      .span-2{grid-column:auto}
+    }
+    @media (max-width: 480px){
+      h1{font-size:clamp(3.6rem, 17vw, 5.2rem)}
+      .hero-top{flex-direction:column;gap:8px;padding-bottom:24px}
+      .hero-visual{min-height:380px}
+      .visual-note{left:16px;bottom:16px;padding:18px;width:calc(100% - 32px)}
+      .button{width:100%}
+      .form-actions .button{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Gahara Technologies Home">
+        <span class="brand-mark">
+          <img src="assets/gahara/gahara-logo-square.png" alt="Gahara Technologies Logo" width="40" height="40">
+        </span>
+        <span>GAHARA TECHNOLOGIES</span>
+      </a>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mainNav">Menu &#9776;</button>
+      <nav class="nav-links" id="mainNav" aria-label="Primary">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="/website/portfolio">Portfolio</a>
+        <a href="#security">Security</a>
+        <a class="nav-cta" href="#partner" data-mode-trigger="contact">Initiate a Project <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="wrap">
+        <div class="hero-top eyebrow">
+          <span>Bespoke Intelligence &middot; Critical Systems</span>
+          <span>Kuala Lumpur, Malaysia</span>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Gahara<br>Tech.</h1>
+            <p class="hero-tagline">
+              <strong class="hero-headline-sub">Architecting Intelligence. Engineering Precision.</strong>
+              We build custom digital platforms, autonomous AI, and mission-critical systems for organizations that demand effortless scale and absolute security.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#partner" data-mode-trigger="contact">Initiate a Project <span aria-hidden="true">&#8599;</span></a>
+              <a class="text-link" href="#capabilities">Explore Capabilities <span aria-hidden="true">&#8599;</span></a>
+              <a class="text-link" href="/website/portfolio">Web Portfolio (10) <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/gahara/hero-command.jpg" alt="Visionary architect looking over city horizon in a glass gallery studio" fetchpriority="high">
+            <div class="visual-note">
+              <strong>05</strong>
+              <span>Core Engineering Disciplines &middot; Zero-Trust Default &middot; 24/7 Autonomous AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 / OUR PHILOSOPHY -->
+    <section class="section" id="philosophy" aria-labelledby="philosophy-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-index">01 / OUR PHILOSOPHY</div>
+          <div>
+            <div class="eyebrow" style="color:#666;margin-bottom:14px">Bespoke Craftsmanship &middot; Engineered from First Principles</div>
+            <h2 id="philosophy-heading">Built Around Human Judgment. Powered by Autonomous Systems.</h2>
+            <p class="lead">
+              We never rely on off-the-shelf templates. Every platform, predictive model, and aerial control system is custom-architected around your people and operations—turning complex challenges into quiet, reliable advantages.
+            </p>
+          </div>
+        </div>
+        <div class="project-images">
+          <div class="frame">
+            <img class="tall" src="assets/gahara/philosophy-operations.jpg" alt="Senior engineers collaborating over blueprints in a sunlit architectural studio" loading="lazy">
+          </div>
+          <div class="frame">
+            <img class="short" src="assets/gahara/web-mobile-architecture.jpg" alt="Malay software architect in Baju Kebaya showcasing Luncur (luncur.my) mobile and web navigation architecture" loading="lazy">
+          </div>
+        </div>
+        <div class="project-caption">
+          <div>
+            <strong>Human Vision &middot; Autonomous Precision</strong>
+            <div class="meta" style="margin-top:6px;color:var(--muted)">5 Domains &middot; End-to-End Engineering &middot; Zero-Trust Security by Default &middot; 24/7 Autonomous Execution</div>
+          </div>
+          <a class="text-link" href="/website/portfolio">Explore Live Web Portfolio <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / ARCHITECTURAL PILLARS (DARK MANIFESTO) -->
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <div class="wrap">
+        <div class="manifesto-grid">
+          <div class="section-index">02 / ENGINEERING STANDARD</div>
+          <div>
+            <h2 id="manifesto-title">Custom Architecture. Applied Intelligence. Uncompromised Privacy.</h2>
+            <div class="manifesto-copy">
+              <p>
+                <strong style="color:#fff;display:block;margin-bottom:6px">Custom Architecture &amp; Applied Intelligence</strong>
+                Tailored from the ground up for your exact operational workflow—combining cloud-native platforms with AI and analytics that elevate human decision-making in real time.
+              </p>
+              <p>
+                <strong style="color:#fff;display:block;margin-bottom:6px">Commercial to Tactical &amp; Uncompromised Privacy</strong>
+                Proven across enterprise cloud platforms and field robotics, backed by end-to-end encryption and zero-trust defense at every layer.
+              </p>
+            </div>
+            <div class="outcome-row" aria-label="Core engineering outcomes">
+              <span>Custom Architecture</span>
+              <span>Applied Intelligence</span>
+              <span>Commercial to Tactical</span>
+              <span>Uncompromised Privacy</span>
+              <span>99.99% Cloud Resilience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / CORE CAPABILITIES -->
+    <section class="section" id="capabilities" aria-labelledby="capabilities-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-index">03 / CORE CAPABILITIES</div>
+          <div>
+            <h2 id="capabilities-heading">Five Disciplines. One Cohesive Standard.</h2>
+            <p class="lead">
+              Select or expand any engineering discipline below to inspect our architecture, visual systems, and production capabilities.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-toolbar">
+          <div class="filter-pills" role="toolbar" aria-label="Filter capabilities">
+            <button type="button" class="filter-pill active" data-filter="all">All (<span id="serviceCount">5</span>)</button>
+            <button type="button" class="filter-pill" data-filter="platform">Web &amp; Mobile</button>
+            <button type="button" class="filter-pill" data-filter="ai">Autonomous AI</button>
+            <button type="button" class="filter-pill" data-filter="cv">Predictive &amp; Vision</button>
+            <button type="button" class="filter-pill" data-filter="uav">Aerial &amp; Robotics</button>
+            <button type="button" class="filter-pill" data-filter="security">Cyber Defense</button>
+          </div>
+          <div class="toolbar-controls">
+            <input class="service-search" id="serviceSearch" type="search" placeholder="Search capabilities (e.g. mobile, AI, UAV, zero-trust)..." aria-label="Search capabilities">
+            <button class="menu-button" id="toggleAllBtn" type="button" style="display:inline-flex" aria-expanded="true">Collapse All &minus;</button>
+          </div>
+        </div>
+
+        <div class="pillar-list" id="pillarList">
+          <!-- Discipline 01 -->
+          <details class="pillar" data-category="platform" open>
+            <summary>
+              <span class="pillar-num">DISCIPLINE 01</span>
+              <span class="pillar-title">Enterprise Web &amp; Mobile Architecture</span>
+              <span class="pillar-sub">01 &middot; Digital Ecosystems &amp; Cloud-Native Platforms</span>
+              <span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="discipline-showcase">
+              <a href="/website/portfolio" class="discipline-media" aria-label="View Enterprise Web & Mobile Portfolio">
+                <img src="assets/gahara/web-mobile-architecture.jpg" alt="Malay software architect in Baju Kebaya showcasing Luncur (luncur.my) mobile and web navigation architecture" loading="lazy">
+              </a>
+              <div class="discipline-copy">
+                <div class="eyebrow" style="color:#666">01 &middot; Digital Ecosystems</div>
+                <h3><a href="/website/portfolio">Enterprise Web &amp; Mobile Architecture</a></h3>
+                <p>
+                  High-velocity web applications and native mobile ecosystems designed for effortless human interaction and 99.99% cloud resilience.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">Cloud-Native Platforms</span>
+                  <span class="tag">Enterprise Mobile Apps</span>
+                  <span class="tag">Human-Centric UX</span>
+                </div>
+                <div style="margin-top:6px">
+                  <a class="button" href="/website/portfolio">View Web Portfolio (10 Live Sites) <span aria-hidden="true">&#8599;</span></a>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Discipline 02 -->
+          <details class="pillar" data-category="ai" open>
+            <summary>
+              <span class="pillar-num">DISCIPLINE 02</span>
+              <span class="pillar-title">Autonomous AI &amp; Workflow Automation</span>
+              <span class="pillar-sub">02 &middot; Applied Intelligence &amp; Self-Adapting Agents</span>
+              <span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="discipline-showcase">
+              <div class="discipline-media">
+                <img src="assets/gahara/autonomous-ai.jpg" alt="Artistic portrait of a human face illuminated by warm ribbons of light" loading="lazy">
+              </div>
+              <div class="discipline-copy">
+                <div class="eyebrow" style="color:#666">02 &middot; Applied Intelligence</div>
+                <h3>Autonomous AI &amp; Workflow Automation</h3>
+                <p>
+                  Fine-tuned machine learning models and self-adapting AI agents that execute marketing, operations, and complex workflows autonomously.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">Custom ML Models</span>
+                  <span class="tag">Autonomous Agents</span>
+                  <span class="tag">Growth Automation</span>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Discipline 03 -->
+          <details class="pillar" data-category="cv" open>
+            <summary>
+              <span class="pillar-num">DISCIPLINE 03</span>
+              <span class="pillar-title">Predictive Analytics &amp; Real-Time Computer Vision</span>
+              <span class="pillar-sub">03 &middot; Foresight, Motion Tracking &amp; Computer Vision</span>
+              <span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="discipline-showcase">
+              <div class="discipline-media">
+                <img src="assets/gahara/predictive-cv-multidomain.jpg" alt="Dynamic fine-art photograph of an athlete sprinting through a shaft of stadium light" loading="lazy">
+              </div>
+              <div class="discipline-copy">
+                <div class="eyebrow" style="color:#666">03 &middot; Foresight &amp; Computer Vision</div>
+                <h3>Predictive Analytics &amp; Real-Time Computer Vision</h3>
+                <p>
+                  Turn raw visual and operational data into instant foresight. From market demand simulations to real-time motion tracking in industrial and elite sports environments, our models see what comes next.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">Demand &amp; Risk Forecasting</span>
+                  <span class="tag">Real-Time Computer Vision</span>
+                  <span class="tag">Biomechanics &amp; Sports Analytics</span>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Discipline 04 -->
+          <details class="pillar" data-category="uav" open>
+            <summary>
+              <span class="pillar-num">DISCIPLINE 04</span>
+              <span class="pillar-title">Tactical Robotics &amp; UAV Systems</span>
+              <span class="pillar-sub">04 &middot; Aerial &amp; Field Autonomy</span>
+              <span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="discipline-showcase">
+              <div class="discipline-media">
+                <img src="assets/gahara/tactical-uav.jpg" alt="Field specialist on a misty mountain ridge at sunset watching an autonomous aerial glider" loading="lazy">
+              </div>
+              <div class="discipline-copy">
+                <div class="eyebrow" style="color:#666">04 &middot; Aerial &amp; Field Autonomy</div>
+                <h3>Tactical Robotics &amp; UAV Systems</h3>
+                <p>
+                  Precision flight control, live telemetry, and autonomous navigation software engineered for unmanned aerial vehicles and field robotics.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">Autonomous Flight Control</span>
+                  <span class="tag">Live Telemetry Links</span>
+                  <span class="tag">Field Robotics</span>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Discipline 05 -->
+          <details class="pillar" data-category="security" open>
+            <summary>
+              <span class="pillar-num">DISCIPLINE 05</span>
+              <span class="pillar-title">Mission-Critical Security Infrastructure</span>
+              <span class="pillar-sub">05 &middot; Zero-Trust Architecture &amp; Digital Vaults</span>
+              <span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="discipline-showcase">
+              <div class="discipline-media">
+                <img src="assets/gahara/security-fortress.jpg" alt="Human figure walking calmly down a tranquil smoked-glass architectural corridor" loading="lazy">
+              </div>
+              <div class="discipline-copy">
+                <div class="eyebrow" style="color:#666">05 &middot; Zero-Trust Architecture</div>
+                <h3>Mission-Critical Security Infrastructure</h3>
+                <p>
+                  Hardened code, quantum-ready encryption, and zero-trust digital vaults that keep your proprietary data and command systems sovereign.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">Zero-Trust Vaults</span>
+                  <span class="tag">End-to-End Encryption</span>
+                  <span class="tag">Threat Resilience</span>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / SELECTED WEB PORTFOLIO PREVIEW -->
+    <section class="section" id="portfolio-preview" aria-labelledby="portfolio-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-index">04 / DEPLOYED ECOSYSTEMS</div>
+          <div>
+            <h2 id="portfolio-heading">Enterprise Web &amp; Digital Portfolio.</h2>
+            <p class="lead">
+              A curated selection of live web platforms engineered by Gahara Technologies across corporate, mobility, heritage, and applied AI sectors.
+            </p>
+          </div>
+        </div>
+        <div class="blueprint-grid">
+          <a class="blueprint-card" href="https://luncur.my" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="eyebrow" style="color:#777;margin-bottom:12px">01 / LUNCUR.MY</div>
+              <div class="blueprint-thumb">
+                <img src="assets/portfolio/luncur.jpg" alt="Luncur.my Live Website" loading="lazy">
+              </div>
+              <h3>Luncur</h3>
+              <p>Next-generation Malaysia navigation, live traffic intelligence, and mobility ecosystem.</p>
+            </div>
+            <span class="text-link" style="align-self:flex-start">Visit luncur.my <span aria-hidden="true">&#8599;</span></span>
+          </a>
+
+          <a class="blueprint-card" href="https://studioartisan.my" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="eyebrow" style="color:#777;margin-bottom:12px">02 / STUDIOARTISAN.MY</div>
+              <div class="blueprint-thumb">
+                <img src="assets/portfolio/studioartisan.jpg" alt="StudioArtisan.my Live Website" loading="lazy">
+              </div>
+              <h3>Studio Artisan</h3>
+              <p>Business automation, corporate AI transformation, and operational intelligence advisory.</p>
+            </div>
+            <span class="text-link" style="align-self:flex-start">Visit studioartisan.my <span aria-hidden="true">&#8599;</span></span>
+          </a>
+
+          <a class="blueprint-card" href="https://gantara.my" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="eyebrow" style="color:#777;margin-bottom:12px">03 / GANTARA.MY</div>
+              <div class="blueprint-thumb">
+                <img src="assets/portfolio/gantara.jpg" alt="Gantara.my Live Website" loading="lazy">
+              </div>
+              <h3>Gantara</h3>
+              <p>Bespoke digital platform engineered with high-contrast editorial clarity and resilient scale.</p>
+            </div>
+            <span class="text-link" style="align-self:flex-start">Visit gantara.my <span aria-hidden="true">&#8599;</span></span>
+          </a>
+        </div>
+        <div class="project-caption">
+          <div>
+            <strong>10 Live Production Websites</strong>
+            <div class="meta" style="margin-top:6px;color:var(--muted)">Gantara &middot; Serigala &middot; Bendahara &middot; Buruan &middot; Mustika &middot; Seia &middot; Lumba &middot; Luncur &middot; Studio Artisan &middot; Lamira</div>
+          </div>
+          <a class="button" href="/website/portfolio">View All 10 Portfolio Websites <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / SECURITY & SOVEREIGNTY -->
+    <section class="section" id="security" aria-labelledby="security-heading">
+      <div class="wrap fractional">
+        <div class="fractional-box">
+          <div class="eyebrow" style="color:#777;margin-bottom:18px">SOVEREIGNTY &middot; ZERO-TRUST ARCHITECTURE</div>
+          <img src="assets/gahara/security-fortress.jpg" alt="Zero-Trust Security Architecture" style="width:100%;height:420px;object-fit:cover;margin-bottom:24px" loading="lazy">
+          <div class="meta" style="color:#555">HARDENED CODE &middot; QUANTUM-READY ENCRYPTION &middot; NDA PROTECTED</div>
+        </div>
+        <div>
+          <div class="section-index">05 / SECURITY BY DEFAULT</div>
+          <h2 id="security-heading" style="margin-top:26px">Confidential &amp; Zero-Trust From Day One.</h2>
+          <p class="lead">
+            Every architectural consultation, custom model, and production deployment is engineered under strict zero-trust confidentiality—keeping your proprietary data and command systems sovereign.
+          </p>
+          <div class="advisory-pillars">
+            <div>
+              <b>01 &middot; Custom Architecture</b>
+              <span>Tailored from the ground up for your exact operational workflow.</span>
+            </div>
+            <div>
+              <b>02 &middot; Applied Intelligence</b>
+              <span>AI and analytics that elevate human decision-making in real time.</span>
+            </div>
+            <div>
+              <b>03 &middot; Commercial to Tactical</b>
+              <span>Proven across enterprise cloud platforms and field robotics.</span>
+            </div>
+            <div>
+              <b>04 &middot; Uncompromised Privacy</b>
+              <span>End-to-end encryption and zero-trust defense at every layer.</span>
+            </div>
+          </div>
+          <a class="button" href="#partner" data-mode-trigger="consultation">Schedule a Consultation <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / PRIVATE BRIEFING (DARK CONTACT) -->
+    <section class="contact" id="partner" aria-labelledby="partner-heading">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div>
+            <div class="section-index">06 / PRIVATE BRIEFING</div>
+            <h2 id="partner-heading">Partner with Gahara.</h2>
+            <p class="lead">
+              We collaborate with visionary founders, enterprises, and institutions to build technology that defines their category. Share your brief below to connect directly with our principal engineers.
+            </p>
+            <div class="contact-facts">
+              <div class="contact-fact"><b>Protection</b><span>Confidential &amp; NDA Protected</span></div>
+              <div class="contact-fact"><b>Standard</b><span>Zero-Trust Confidentiality</span></div>
+              <div class="contact-fact"><b>Entity</b><span>Gahara Technologies (NS0328808-M)</span></div>
+              <div class="contact-fact"><b>Location</b><span>Kuala Lumpur, Malaysia</span></div>
+              <div class="contact-fact"><b>Email</b><a href="mailto:gahara.tech@gmail.com">gahara.tech@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div id="briefing-terminal">
+            <div class="mode-switch" role="tablist" aria-label="Engagement Type">
+              <button type="button" class="mode-tab active" data-mode="contact" role="tab" aria-selected="true">
+                Initiate a Project
+              </button>
+              <button type="button" class="mode-tab" data-mode="consultation" role="tab" aria-selected="false">
+                Schedule a Consultation
+              </button>
+            </div>
+
+            <form class="form-grid" id="engagement-form">
+              <label for="client-name">Your Name
+                <input type="text" id="client-name" name="name" placeholder="e.g. Dato' Amirul / Sarah Chen" autocomplete="name" required>
+              </label>
+              <label for="client-org">Organization
+                <input type="text" id="client-org" name="organization" placeholder="Company or Institution" autocomplete="organization" required>
+              </label>
+              <label for="client-email">Work Email
+                <input type="email" id="client-email" name="email" placeholder="name@company.com" autocomplete="email" required>
+              </label>
+              <label for="capability-select">Primary Discipline
+                <select id="capability-select" name="discipline">
+                  <option value="Enterprise Web & Mobile Architecture">Enterprise Web &amp; Mobile Architecture</option>
+                  <option value="Autonomous AI & Workflow Automation">Autonomous AI &amp; Workflow Automation</option>
+                  <option value="Predictive Analytics & Computer Vision">Predictive Analytics &amp; Computer Vision</option>
+                  <option value="Tactical Robotics & UAV Systems">Tactical Robotics &amp; UAV Systems</option>
+                  <option value="Mission-Critical Security Infrastructure">Mission-Critical Security Infrastructure</option>
+                </select>
+              </label>
+              <label class="span-2" id="consultation-window-group" for="consultation-date" style="display:none">Preferred Consultation Time
+                <input type="text" id="consultation-date" name="consultation_time" placeholder="e.g. Thursday 3:00 PM MYT">
+              </label>
+              <label class="span-2" for="operational-brief"><span id="brief-label-text">Project Overview</span>
+                <textarea id="operational-brief" name="message" rows="4" placeholder="Tell us briefly about your goals, timeline, or technical challenge..." required></textarea>
+              </label>
+              <div class="span-2">
+                <div class="form-actions">
+                  <button class="button button-light" type="submit" id="submit-btn">
+                    <span>Send Project Brief</span>
+                    <span aria-hidden="true">&#8599;</span>
+                  </button>
+                  <button class="button button-outline-light" type="button" id="copyEnquiryBtn">Copy Details</button>
+                </div>
+                <p class="form-status" id="form-status" role="status" aria-live="polite">
+                  Every architectural consultation and project disclosure is routed directly to gahara.tech@gmail.com under strict zero-trust confidentiality.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <span>&copy; <span id="year">2026</span> GAHARA TECHNOLOGIES (NS0328808-M) &middot; ARCHITECTING INTELLIGENCE. ENGINEERING PRECISION.</span>
+          <div class="footer-links">
+            <a href="#top">Top</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="/website/portfolio">Portfolio</a>
+            <a href="#security">Security</a>
+            <a href="#partner">Engage</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle (Studio Artisan pattern)
+    const menuButton = document.getElementById('menuButton');
+    const mainNav = document.getElementById('mainNav');
+    menuButton.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? 'Close \u00d7' : 'Menu \u2630';
+    });
+    mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'Menu \u2630';
+    }));
+
+    // Capabilities Filter, Search & Expand/Collapse All
+    const filterPills = [...document.querySelectorAll('.filter-pill')];
+    const pillars = [...document.querySelectorAll('.pillar')];
+    const searchInput = document.getElementById('serviceSearch');
+    const toggleAllBtn = document.getElementById('toggleAllBtn');
+    const serviceCount = document.getElementById('serviceCount');
+    let activeCategory = 'all';
+
+    function updateToggleState() {
+      const visiblePillars = pillars.filter(p => !p.hidden);
+      const allOpen = visiblePillars.length > 0 && visiblePillars.every(p => p.open);
+      toggleAllBtn.setAttribute('aria-expanded', String(allOpen));
+      toggleAllBtn.textContent = allOpen ? 'Collapse All \u2212' : 'Expand All +';
+    }
+
+    function applyCapabilitiesFilter() {
+      const q = (searchInput.value || '').trim().toLowerCase();
+      let count = 0;
+      pillars.forEach(pillar => {
+        const cat = pillar.getAttribute('data-category');
+        const matchesCat = (activeCategory === 'all' || cat === activeCategory);
+        const matchesQuery = !q || pillar.textContent.toLowerCase().includes(q);
+        const visible = matchesCat && matchesQuery;
+        pillar.hidden = !visible;
+        if (visible) {
+          count++;
+          if (q || activeCategory !== 'all') pillar.open = true;
+        }
+      });
+      if (serviceCount) serviceCount.textContent = String(count);
+      updateToggleState();
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        activeCategory = pill.getAttribute('data-filter') || 'all';
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        applyCapabilitiesFilter();
+      });
+    });
+
+    searchInput.addEventListener('input', applyCapabilitiesFilter);
+
+    toggleAllBtn.addEventListener('click', () => {
+      const visiblePillars = pillars.filter(p => !p.hidden);
+      const nextState = !(visiblePillars.length > 0 && visiblePillars.every(p => p.open));
+      visiblePillars.forEach(p => { p.open = nextState; });
+      updateToggleState();
+    });
+
+    pillars.forEach(p => p.addEventListener('toggle', updateToggleState));
+
+    // Mode Switching (Initiate a Project vs Schedule a Consultation)
+    const modeTabs = document.querySelectorAll('.mode-tab');
+    const modeTriggers = document.querySelectorAll('[data-mode-trigger]');
+    const consultationWindowGroup = document.getElementById('consultation-window-group');
+    const consultationDateInput = document.getElementById('consultation-date');
+    const briefLabelText = document.getElementById('brief-label-text');
+    const briefTextarea = document.getElementById('operational-brief');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function setEngagementMode(mode) {
+      const isConsultation = (mode === 'consultation');
+      modeTabs.forEach(tab => {
+        const isMatch = tab.getAttribute('data-mode') === (isConsultation ? 'consultation' : 'contact');
+        tab.classList.toggle('active', isMatch);
+        tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      if (isConsultation) {
+        consultationWindowGroup.style.display = 'block';
+        if (consultationDateInput) consultationDateInput.required = true;
+        if (briefLabelText) briefLabelText.textContent = 'Consultation Agenda / Discussion Topics';
+        if (briefTextarea) briefTextarea.placeholder = 'Share the key topics, questions, or architecture goals you would like to discuss during the consultation...';
+        submitBtn.innerHTML = '<span>Schedule Consultation</span><span aria-hidden="true">&#8599;</span>';
+      } else {
+        consultationWindowGroup.style.display = 'none';
+        if (consultationDateInput) consultationDateInput.required = false;
+        if (briefLabelText) briefLabelText.textContent = 'Project Overview';
+        if (briefTextarea) briefTextarea.placeholder = 'Tell us briefly about your goals, timeline, or technical challenge...';
+        submitBtn.innerHTML = '<span>Send Project Brief</span><span aria-hidden="true">&#8599;</span>';
+      }
+    }
+
+    modeTabs.forEach(tab => {
+      tab.addEventListener('click', () => setEngagementMode(tab.getAttribute('data-mode')));
+    });
+
+    modeTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => setEngagementMode(trigger.getAttribute('data-mode-trigger')));
+    });
+
+    function buildBriefPayload() {
+      const name = document.getElementById('client-name').value.trim();
+      const org = document.getElementById('client-org').value.trim();
+      const email = document.getElementById('client-email').value.trim();
+      const domain = document.getElementById('capability-select').value;
+      const consultTime = document.getElementById('consultation-date').value.trim();
+      const brief = document.getElementById('operational-brief').value.trim();
+      const isConsultation = consultationWindowGroup.style.display !== 'none';
+      const typeLabel = isConsultation ? 'Consultation Request' : 'Project Brief';
+      const subject = `[Gahara Technologies] ${typeLabel} - ${org} (${domain})`;
+      const bodyLines = [
+        `Engagement Type: ${typeLabel}`,
+        `Name: ${name}`,
+        `Organization: ${org}`,
+        `Work Email: ${email}`,
+        `Primary Discipline: ${domain}`,
+        ...(isConsultation && consultTime ? [`Preferred Consultation Time: ${consultTime}`] : []),
+        ``,
+        `${isConsultation ? 'Consultation Agenda' : 'Project Overview'}:`,
+        brief
+      ];
+      return { name, org, email, domain, consultTime, brief, isConsultation, typeLabel, subject, body: bodyLines.join('\r\n') };
+    }
+
+    // Copy Details button (Studio Artisan pattern)
+    document.getElementById('copyEnquiryBtn').addEventListener('click', () => {
+      const form = document.getElementById('engagement-form');
+      if (!form.reportValidity()) return;
+      const { subject, body } = buildBriefPayload();
+      const fullText = `To: gahara.tech@gmail.com\nSubject: ${subject}\n\n${body}`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullText).then(() => {
+          document.getElementById('form-status').textContent = 'Brief details copied to clipboard! You can now paste directly into Gmail or any email client.';
+        });
+      }
+    });
+
+    // Form Submission -> Auto-email to gahara.tech@gmail.com
+    const form = document.getElementById('engagement-form');
+    const formStatus = document.getElementById('form-status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const { name, org, email, domain, consultTime, brief, isConsultation, typeLabel, subject, body } = buildBriefPayload();
+      const mailtoUrl = 'mailto:gahara.tech@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending to gahara.tech@gmail.com...</span>';
+
+      try {
+        await fetch('https://formsubmit.co/ajax/gahara.tech@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: subject,
+            Engagement_Type: typeLabel,
+            Name: name,
+            Organization: org,
+            Email: email,
+            Primary_Discipline: domain,
+            Preferred_Consultation_Time: consultTime || 'N/A',
+            Message: brief
+          })
+        });
+      } catch (err) {
+        // Fallback handled via direct mailto trigger below
+      }
+
+      window.location.href = mailtoUrl;
+
+      formStatus.innerHTML = `Thank you, <strong>${name}</strong> (${org}). Your ${typeLabel.toLowerCase()} has been routed to <a href="${mailtoUrl}" style="text-decoration:underline;color:#fff">gahara.tech@gmail.com</a>.`;
+      submitBtn.disabled = false;
+      setEngagementMode(isConsultation ? 'consultation' : 'contact');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
