@@ -1176,7 +1176,6 @@
                     <span>Send Project Brief</span>
                     <span aria-hidden="true">&#8599;</span>
                   </button>
-                  <button class="button button-outline-light" type="button" id="copyEnquiryBtn">Copy Details</button>
                 </div>
                 <p class="form-status" id="form-status" role="status" aria-live="polite">
                   Every architectural consultation and project disclosure is routed directly to gahara.tech@gmail.com under strict zero-trust confidentiality.
@@ -1334,19 +1333,6 @@
       ];
       return { name, org, email, domain, consultTime, brief, isConsultation, typeLabel, subject, body: bodyLines.join('\r\n') };
     }
-
-    // Copy Details button (Studio Artisan pattern)
-    document.getElementById('copyEnquiryBtn').addEventListener('click', () => {
-      const form = document.getElementById('engagement-form');
-      if (!form.reportValidity()) return;
-      const { subject, body } = buildBriefPayload();
-      const fullText = `To: gahara.tech@gmail.com\nSubject: ${subject}\n\n${body}`;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(fullText).then(() => {
-          document.getElementById('form-status').textContent = 'Brief details copied to clipboard! You can now paste directly into Gmail or any email client.';
-        });
-      }
-    });
 
     // Form Submission -> Auto-email to gahara.tech@gmail.com
     const form = document.getElementById('engagement-form');
